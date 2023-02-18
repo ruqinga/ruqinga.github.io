@@ -1,0 +1,722 @@
+<!doctype html><html lang=zh-cn dir=content/zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=content-security-policy content="upgrade-insecure-requests"><title>微生物组qimme2分析 - 我生来就是高山</title><meta name=keywords content="博客,生信,成长,思考,读书,笔记,技术,分享"><meta name=author content="了不起的雷心怡"><meta property="og:title" content="微生物组qimme2分析"><meta property="og:site_name" content="我生来就是高山"><meta property="og:image" content="/img/author.jpg"><meta name=title content="微生物组qimme2分析 - 我生来就是高山"><meta name=description content="欢迎来到如卿的个人博客，分享是最高级的浪漫。"><link rel="shortcut icon" href=/img/favicon.ico><link rel=apple-touch-icon href=/img/apple-touch-icon.png><link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png><link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css><link href=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.css rel=stylesheet><link href=/css/main.css rel=stylesheet type=text/css><link href=/css/syntax.css rel=stylesheet type=text/css></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-hans><div class="container one-collumn sidebar-position-left page-home"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button style=opacity:1;top:0><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><div class=multi-lang-switch><i class="fa fa-fw fa-language" style=margin-right:5px></i>
+<a class=lang-link id=zh-cn href=#>中文</a></div><div class=custom-logo-site-title><a href=/ class=brand rel=start><span class=logo-line-before><i></i></span>
+<span class=site-title>我生来就是高山</span>
+<span class=logo-line-after><i></i></span></a></div><p class=site-subtitle>山顶见!</p></div><div class=site-nav-right><div class="toggle popup-trigger" style=opacity:1;top:0><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul id=menu class=menu><li class=menu-item><a href=/ rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class=menu-item><a href=/post rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class=menu-item><a href=/about.html rel=section><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于我</a></li><li class=menu-item><a href=/404.html rel=section><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>其它</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span>
+<span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索关键字... spellcheck=false type=text id=local-search-input autocapitalize=none autocorrect=off></div></div><div id=local-search-result></div></div></div></nav></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><section id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline"><a class=post-title-link href=http://ruqinga.github.io/post/qimme2/ itemprop=url>微生物组qimme2分析</a></h1><div class=post-meta><span class=post-time><i class="fa fa-calendar-o fa-fw"></i>
+<span class=post-meta-item-text>时间：</span>
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-05-23">2022-05-23</time></span>
+<span class=post-category>&nbsp; | &nbsp;
+<i class="fa fa-folder-o fa-fw"></i>
+<span class=post-meta-item-text>分类：</span>
+<span itemprop=about itemscope itemtype=https://schema.org/Thing><a href=/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84 itemprop=url rel=index style=text-decoration:underline><span itemprop=name>微生物组</span></a>
+&nbsp;</span></span>
+<span>|
+<i class="fa fa-file-word-o fa-fw"></i>
+<span class=post-meta-item-text>字数：</span>
+<span class=leancloud-world-count>12468 字</span></span>
+<span>|
+<i class="fa fa-eye fa-fw"></i>
+<span class=post-meta-item-text>阅读：</span>
+<span class=leancloud-view-count>25分钟</span></span>
+<span id=/post/qimme2/ class=leancloud_visitors data-flag-title=微生物组qimme2分析>|
+<i class="fa fa-binoculars fa-fw"></i>
+<span class=post-meta-item-text>阅读次数：</span>
+<span class=leancloud-visitors-count></span></span></div></header><div class=post-body itemprop=articleBody><p>本文详细阐述整个微生物组分析流程，从Linux上跑qimme2到R上可视化，并推荐了相关教程。从零开始也不怕！</p><h1 id=导论>导论</h1><p>开始前，你需要了解QIIME 2的以下信息</p><p>必看：</p><ul><li><p><a href=https://forum.qiime2.org/>QIIME 2 官方论坛</a>（非常有用哦）</p></li><li><p>使用<a href=https://view.qiime2.org/>该页面</a>查看 QIIME 2 的 qzv 后缀可视化文件</p></li><li><p>QIIME 2 官方文档：
+【<a href="https://mp.weixin.qq.com/s?__biz=MzUzMjA4Njc1MA==&mid=2247487350&idx=1&sn=aa945aca002ce1ebf3bfcdc50aadf63b&scene=21#wechat_redirect">中文参考</a>】
+【英文原版】 <a href=https://docs.qiime2.org>https://docs.qiime2.org</a>
+官方文档会隔几个月更新一次，每个版本的更新内容在官方论坛里可以找到。</p></li><li><p>推荐一看的参考教程（中文版）：
+单端数据：https://github.com/YongxinLiu/QIIME2ChineseManual</p><p>双端数据：https://mp.weixin.qq.com/s/p2Snx0v8Fh_BOY-z2vVUCg</p></li><li><p>QIIME 2 安装教程：https://docs.qiime2.org/2022.2/install/</p></li></ul><p>qiime2安装</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 更新conda减少问题</span>
+</span></span><span style=display:flex><span>conda update conda 
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 下载wget</span>
+</span></span><span style=display:flex><span>conda install wget
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 下载安装qiime2需要的安装包的目录（.yml格式）</span>
+</span></span><span style=display:flex><span>wget https://data.qiime2.org/distro/core/qiime2-2022.2-py38-linux-conda.yml <span style=color:#080;font-style:italic>#根据官网下载最新</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 创建conda环境并安装</span>
+</span></span><span style=display:flex><span>conda env create -n qiime2-2022.2 --file qiime2-2022.2-py38-linux-conda.yml
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 激活环境</span>
+</span></span><span style=display:flex><span>conda activate qiime2-2022.2
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 查看是否安装成功</span>
+</span></span><span style=display:flex><span>qiime --help
+</span></span></code></pre></td></tr></table></div></div><h1 id=1-前处理>1 前处理</h1><p>1.拆分样品：为了降低成本，往往将多个样本混合后再一起测序，其中为了区别不同样本会在 DNA 分子中用实验方法嵌入一段人工合成的编码序列（barcode）。在拿到数据后首先需要将不同组的样品区分开。具体操作见其它中的[拆分样品](# 拆分样品)</p><p>2.质检与引物切除：送公司测序返还的数据一般都是拆分过并去除了引物的，可以自己再做一下质检，后续使用dada2分析时也会有碱基质量分布图，所以这步可以不做，自己质检（fastqc）的信息会比较全面。</p><p>3.数据导入：在QIIME2中进行分析，需要将数据转化为QIIME2对象（artifacts）。更多可参考：<a href=https://zhuanlan.zhihu.com/p/406701848>QIIME 2 参数</a></p><h2 id=1质检>1）质检</h2><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 公司的给的测序数据一般都是拆分过的，可将单端数据全部合并做质检，也可单独质检</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># cat命令合并压缩过的文件会出错，合并之前需要先解压。</span>
+</span></span><span style=display:flex><span>gunzip *.gz <span style=color:#080;font-style:italic># 解压</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 第一种方法：合并后质检。</span>
+</span></span><span style=display:flex><span>cat *R1* &gt; R1.fastq <span style=color:#080;font-style:italic>#合并上游序列,并指定输出文件名为R1.fastq</span>
+</span></span><span style=display:flex><span>cat *R2* &gt; R2.fastq <span style=color:#080;font-style:italic>#合并下游序列,并指定输出文件名为R2.fastq</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 质检</span>
+</span></span><span style=display:flex><span>mkdir qc <span style=color:#080;font-style:italic>#创建一个文件夹用于存放质检文件</span>
+</span></span><span style=display:flex><span>fastqc -t <span style=color:#666>2</span> R1.fastq R2.fastq -o qc <span style=color:#080;font-style:italic># -t --threads，一般有多少个样本用多少线程。-o 指定输出文件存放目录。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 第二种方法：单独质检后将质检报告合并</span>
+</span></span><span style=display:flex><span>mkdir qct <span style=color:#080;font-style:italic>#创建一个文件夹用于存放质检文件</span>
+</span></span><span style=display:flex><span>fastqc *fastq -t <span style=color:#666>10</span> -o qct
+</span></span><span style=display:flex><span>pip install multiqc <span style=color:#080;font-style:italic>#安装multiqc</span>
+</span></span><span style=display:flex><span>multiqc qct/*  <span style=color:#080;font-style:italic># 合并报告</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=2切除引物>2）切除引物</h2><p>质检结果中，最后一项Adapter Content正常情况是趋于0的直线，也就是说序列两端Adapter已经去除干净；如果有Adapter，需要先用cutadapt去接头</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 安装与升级cutadapt</span>
+</span></span><span style=display:flex><span>pip install --user --upgrade cutadapt
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 将cutadapt添加$PATH环境变量（需管理员权限，没有也没关系，可以跳到下一步）</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>echo</span> <span style=color:#b44>&#39;PATH=&#34;$HOME/.local/bin:$PATH&#34;&#39;</span>&gt;&gt;/etc/profile
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 如无管理员权限，每次使用cutadapt时需指定路径</span>
+</span></span><span style=display:flex><span>如：~/.local/bin/cutadapt --help <span style=color:#080;font-style:italic># 如不指定路径则会使用$PATH中的默认版本，老版本不支持多进程</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 创建存放cut的序列的目录</span>
+</span></span><span style=display:flex><span>mkdir cut_adapt
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 切除引物序列示例。</span>
+</span></span><span style=display:flex><span>~/.local/bin/cutadapt -g forward_primer -e number forward.fastq -o file/R1.fastq -j <span style=color:#666>0</span> 
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># cutadapt参数：</span>
+</span></span><span style=display:flex><span>  -j <span style=color:#666>0</span> 表示调用所有CPU
+</span></span><span style=display:flex><span>  -o 指定输出文件目录、文件名。
+</span></span><span style=display:flex><span>  -g 5’端引物 
+</span></span><span style=display:flex><span>  -a 3’端引物 
+</span></span><span style=display:flex><span>  -e 引物匹配允许错误率,如0.1，0.15等
+</span></span></code></pre></td></tr></table></div></div><h2 id=3数据准备与导入>3）数据准备与导入</h2><p>需要数据：</p><ul><li>元数据（设计方案）</li><li>测序数据（fasta数据）</li></ul><p>为了能批量处理测序数据，需要准备2个文件：</p><ul><li><code>manifest file</code>：下机数据对应关系清单</li><li><code>sample metadata</code>：元数据，也称为实验设计</li></ul><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 1.manifest file</span>
+</span></span><span style=display:flex><span>vim manifest file
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sample-id,absolute-filepath,direction
+</span></span><span style=display:flex><span>002,<span style=color:#b8860b>$PWD</span>/002_R1.fastq,forward
+</span></span><span style=display:flex><span>002,<span style=color:#b8860b>$PWD</span>/002_R2.fastq,reverse
+</span></span><span style=display:flex><span>017,<span style=color:#b8860b>$PWD</span>/017_R1.fastq,forward
+</span></span><span style=display:flex><span>017,<span style=color:#b8860b>$PWD</span>/017_R2.fastq,reverse
+</span></span><span style=display:flex><span>020,<span style=color:#b8860b>$PWD</span>/020_R1.fastq,forward
+</span></span><span style=display:flex><span>020,<span style=color:#b8860b>$PWD</span>/020_R2.fastq,reverse
+</span></span><span style=display:flex><span>060,<span style=color:#b8860b>$PWD</span>/060_R1.fastq,forward
+</span></span><span style=display:flex><span>060,<span style=color:#b8860b>$PWD</span>/060_R2.fastq,reverse
+</span></span><span style=display:flex><span>091,<span style=color:#b8860b>$PWD</span>/091_R1.fastq,forward
+</span></span><span style=display:flex><span>091,<span style=color:#b8860b>$PWD</span>/091_R2.fastq,reverse
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic>#另外如果不是当前测序数据文件下操作，可将$PWD替换为绝对路径（和上面的写法相等）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 2.sample metadata</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 其中q2:types那行可以不写，如果分类是以数字来表示的，如1,2,3,代表不同的分组则需要标注这列对应的q2：types为categorical（分类的），否则会默认为numeric（数字）而报错。</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic>#SampleID   subject edu height  weight  env1    env4</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic>#q2:types       categorical categorical categorical categorical categorical</span>
+</span></span><span style=display:flex><span><span style=color:#666>091</span> subject-1   <span style=color:#666>5</span>   <span style=color:#666>160</span> <span style=color:#666>50</span>  <span style=color:#666>2</span>   <span style=color:#666>1</span>
+</span></span><span style=display:flex><span><span style=color:#666>020</span> subject-1   <span style=color:#666>5</span>   <span style=color:#666>160</span> <span style=color:#666>70</span>  <span style=color:#666>1</span>   <span style=color:#666>3</span>
+</span></span><span style=display:flex><span><span style=color:#666>017</span> subject-1   <span style=color:#666>2</span>   <span style=color:#666>174</span> <span style=color:#666>70</span>  <span style=color:#666>1</span>   <span style=color:#666>3</span>
+</span></span><span style=display:flex><span><span style=color:#666>060</span> subject-2   <span style=color:#666>2</span>   <span style=color:#666>160</span> <span style=color:#666>70</span>  <span style=color:#666>1</span>   <span style=color:#666>1</span>
+</span></span><span style=display:flex><span><span style=color:#666>002</span> subject-2   <span style=color:#666>5</span>   <span style=color:#666>174</span> <span style=color:#666>50</span>  <span style=color:#666>2</span>   <span style=color:#666>1</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>数据导入</strong></p><p>生成qiime需要的artifact文件(qiime文件格式，将原始数据格式标准化)</p><p>单端测序数据导入:</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a2f>time</span> qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type EMPSingleEndSequences <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path emp-single-end-sequences <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path emp-single-end-sequences.qza
+</span></span></code></pre></td></tr></table></div></div><p>双端测序数据导入:</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 2m20.330s</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type <span style=color:#b44>&#39;SampleData[PairedEndSequencesWithQuality]&#39;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path manifest <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path paired-end-demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-format PairedEndFastqManifestPhred33
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 可视化文件paired-end-demux.qza</span>
+</span></span><span style=display:flex><span>qiime demux summarize <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-data paired-end-demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization paired-end-demux.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p><code>time</code>统计计算时间。</p><p><code>type</code>：输入数据类型，主要有</p><ul><li><em>FeatureData[PairedEndSequence]:</em> 特征数据[双端序列]，双端序列进行聚类或去噪后，生成的OTU/Feature。</li><li><em>EMPPairedEndSequences:</em> 采用地球微生物组计划标准实验方法产生的双端测序数据。</li></ul><p>输出对象:</p><ul><li><p><code>emp-single-end-sequences.qza</code></p></li><li><p><code>paired-end-demux.qzv</code>：可视化文件</p><ul><li><p>各样品测序数据柱状分布图，展示不同测序深度下样品数量分布</p></li><li><p><strong>上下游碱基质量分布图</strong>。根据这个确定质控参数，纵坐标低于20的值</p></li><li><p>生成的.qzv文件可<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fview.qiime2.org%2F">点这里</a>拖拽进网页查看(推荐)</p></li><li><p>或是使用<code>qiime tools view paired-end-demux.qzv</code> 查看</p></li></ul></li></ul></blockquote><h1 id=2-质控合并双端序列>2 质控，合并双端序列</h1><p>所谓质控，即去除不合格的reads，包括被接头序列污染的reads、含N碱基数≥3的reads、质量值&lt;20的碱基、截切后长度＜60%原长的reads。经过质控后的reads成为clean reads，所有的分析都是在此基础上完成的。</p><p>QIIME 2插件多种质量控制方法可选，包括DADA2、Deblur和基于基本质量分数的过滤。</p><p>DADA2、Deblur这两种方法的结果将是一个QIIME 2对象<code>FeatureTable[Frequency]</code>和一个<code>FeatureData[Sequence]</code>，<code>Frequency</code>对象包含数据集中每个样本中每个唯一序列的计数（频率），<code>Sequence</code>对象将<code>FeatureTable</code>中的特征ID与序列对应。</p><h2 id=方法1-dada2>方法1. DADA2</h2><p>DADA2是用于检测和校正（如果有可能的话）Illumina扩增序列数据的工作流程。正如在<code>q2-dada2</code>插件中实现的，这个质量控制过程将过滤掉在测序数据中识别的任何<code>phiX</code>序列（通常存在于标记基因Illumina测序数据中，用于提高扩增子测序质量），并同时过滤嵌合序列。</p><p>注意：需要20bp以上的overlap才能使用dada2拼接，否则会报错。</p><blockquote><p>根据上面得到的<code>demux.qzv</code><strong>上下游碱基质量分布图</strong>的结果进行参数设置</p><p>参数设置:</p><ul><li><code>–p-trim-left</code> 截取左端低质量序列，我们看上图中箱线图，左端质量都很高，无低质量区，设置为0</li><li><code>–p-trunc-len </code>序列截取长度，也是为了去除右端低质量序列，我们看到大于120以后，质量下降极大，甚至中位数都下降至20以下，需要全部去除，综合考虑决定设置为120。</li><li><code>f</code>=forward,<code>r</code>=reverse</li></ul></blockquote><p>单端数据处理</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime dada2 denoise-single <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-demultiplexed-seqs demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trim-left <span style=color:#666>0</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trunc-len <span style=color:#666>120</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-representative-sequences rep-seqs-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-table table-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-denoising-stats stats-dada2.qza
+</span></span></code></pre></td></tr></table></div></div><p>双端数据处理</p><p>数据输入：</p><ul><li><code>paired-end-demux.qza</code>导入到QIIME2的测序数据</li></ul><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 6m28.990s</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime dada2 denoise-paired <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-demultiplexed-seqs paired-end-demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trim-left-f <span style=color:#666>0</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trim-left-r <span style=color:#666>0</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trunc-len-f <span style=color:#666>270</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trunc-len-r <span style=color:#666>250</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-table table-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-representative-sequences rep-seqs-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-denoising-stats stats-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-n-threads <span style=color:#666>0</span> <span style=color:#080;font-style:italic>#调用所有CPU</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>生成的三个输出文件：</p><ul><li>stats-dada2.qza: dada2计算统计结果。</li><li>table-dada2.qza: 特征表</li><li>rep-seqs-dada2.qza: 代表序列</li></ul></blockquote><p>生成可视化qzv文件</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 对特征表统计进行可视化</span>
+</span></span><span style=display:flex><span>qiime metadata tabulate <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-input-file stats-dada2.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization stats-dada2.qzv
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 我们的下游分析，将继续使用dada2的结果，需要将它们改名方便继续分析</span>
+</span></span><span style=display:flex><span>mv rep-seqs-dada2.qza rep-seqs.qza
+</span></span><span style=display:flex><span>mv table-dada2.qza table.qza
+</span></span></code></pre></td></tr></table></div></div><p>输出可视化结果：<code>stats-dada2.qzv</code>：特征表统计结果</p><blockquote><p>id、输入、过滤、去噪和非嵌合</p><table><thead><tr><th>sample-id</th><th>input</th><th>filtered</th><th>denoised</th><th>non-chimeric</th></tr></thead><tbody><tr><td>L6S93</td><td>11270</td><td>7483</td><td>7483</td><td>7025</td></tr><tr><td>L6S68</td><td>9554</td><td>6169</td><td>6169</td><td>6022</td></tr></tbody></table></blockquote><h2 id=方法2-deblur>方法2. Deblur</h2><p>Deblur使用序列错误配置文件将错误的序列与从其来源的真实生物序列相关联，从而得到高质量的序列变异数据，主要为两个步骤。首先，应用基于质量分数的初始质量过滤过程，是Bokulich等人2013年发表的质量过滤方法。</p><h3 id=-数据质控>① 数据质控</h3><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 单端数据质控</span>
+</span></span><span style=display:flex><span>qiime quality-filter q-score <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --i-demux demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --o-filtered-sequences demux-filtered.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --o-filter-stats demux-filter-stats.qza
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 双端数据质控</span>
+</span></span><span style=display:flex><span>qiime quality-filter q-score-joined <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --i-demux demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --o-filtered-sequences demux-filtered.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span> --o-filter-stats demux-filter-stats.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出对象:</p><ul><li><code>demux-filtered.qza</code>: 序列质量过滤后结果。</li><li><code>demux-filter-stats.qza</code>: 序列质量过滤后结果统计。</li></ul></blockquote><h3 id=-去噪>② 去噪</h3><p>设置截取长度<code>p-trim-length</code>：质量分数中位数开始下降至低质量区时的长度</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a2f>time</span> qiime deblur denoise-16S <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-demultiplexed-seqs demux-filtered.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-trim-length <span style=color:#666>120</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-representative-sequences rep-seqs-deblur.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-table table-deblur.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-sample-stats <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-stats deblur-stats.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果:</p><ul><li>deblur-stats.qza: 过程统计</li><li>table-deblur.qza: 特征表</li><li>rep-seqs-deblur.qza: 代表序列</li></ul></blockquote><h3 id=-可视化>③ 可视化</h3><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 过滤结果可视化</span>
+</span></span><span style=display:flex><span>qiime metadata tabulate <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-input-file demux-filter-stats.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization demux-filter-stats.qzv
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 去噪结果可视化</span>
+</span></span><span style=display:flex><span>qiime deblur visualize-stats <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-deblur-stats deblur-stats.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization deblur-stats.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果:</p><p>1.<code>demux-filter-stats.qzv</code>: 质量过程统计表，同上面统计表类似</p><p>包括6列，第一列为样本名称，2-6列分别为总输入读长、总保留高读长、截断的读长、截断后太短的读长和超过最大模糊碱基的读长的数量统计。我们通常只关注2，3列数量即可，其它列常用于异常的输助判断。</p><table><thead><tr><th>sample-id</th><th>total-input-reads</th><th>total-retained-reads</th><th>reads-truncated</th><th>reads-too-short-after-truncation</th><th>reads-exceeding-maximum-ambiguous-bases</th></tr></thead><tbody><tr><td>#q2:types</td><td>numeric</td><td>numeric</td><td>numeric</td><td>numeric</td><td>numeric</td></tr><tr><td>L1S105</td><td>11340</td><td>9232</td><td>10782</td><td>2066</td><td>42</td></tr><tr><td>L1S140</td><td>9738</td><td>8585</td><td>9459</td><td>1113</td><td>40</td></tr><tr><td>L1S208</td><td>11337</td><td>10149</td><td>10668</td><td>1161</td><td>27</td></tr></tbody></table><p>2.<code>deblur-stats.qzv: deblur</code>分析统计表，有分析中每个步骤的统计表</p><p><img src=C:%5CUsers%5C22079%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220415190444858.png alt=image-20220415190444858></p></blockquote><p>如果你想用此处结果下游分析，可以改名为下游分析的起始名称：</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>mv rep-seqs-deblur.qza rep-seqs.qza
+</span></span><span style=display:flex><span>mv table-deblur.qza table.qza
+</span></span></code></pre></td></tr></table></div></div><h2 id=特征表和特征序列汇总>特征表和特征序列汇总</h2><p>将上面dada2等质控方法得到的结果汇总，用于进一步分析</p><p><strong>创建数据可视化摘要</strong></p><ol><li><p>特性表汇总命令（<code>feature-table summarize</code>）</p><p>提供关于与每个样品和每个特性相关联的序列数量、这些分布的直方图以及一些相关的汇总统计数据的信息</p></li><li><p>特征表序列表格<code>feature-table tabulate-seqs</code>命令</p><p>提供特征ID到序列的映射，并提供链接以针对NCBI nt数据库轻松BLAST每个序列。</p></li></ol><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># Feature表</span>
+</span></span><span style=display:flex><span>qiime feature-table summarize <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization table.qzv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-sample-metadata-file sample-metadata.txt
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 代表序列统计</span>
+</span></span><span style=display:flex><span>qiime feature-table tabulate-seqs <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-data rep-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization rep-seqs.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果:</p><ul><li>table.qzv: <strong>特征表统计</strong>。计算多样性时会用到</li><li>rep-seqs.qzv: <strong>代表序列统计</strong>，可点击序列跳转NCBI blast查看相近序列的信息。物种注释时会用到。</li></ul></blockquote><h1 id=3-构建进化树用于多样性分析>3 构建进化树用于多样性分析</h1><p>QIIME2生成系统发育树，使用<code>q2-phylogeny</code>插件中的<code>align-to-tree-mafft-fasttree</code>工作流程：</p><ul><li>首先，使用<code>mafft</code>程序执行对每个样本的特征计数<code>FeatureData[Sequence]</code>中的序列进行多序列比对，以创建QIIME 2对象<code>FeatureData[AlignedSequence]</code>。</li><li>接下来，屏蔽（mask或过滤）对齐的的高度可变区(高变区)，这些位置通常被认为会增加系统发育树的噪声。</li><li>随后，应用<code>FastTree</code>基于过滤后的比对结果生成系统发育树。FastTree程序创建的是一个无根树，因此在本节的最后一步中，应用根中点法将树的根放置在无根树中最长端到端距离的中点，从而形成有根树。</li></ul><p>输入数据：</p><ul><li><code>rep-seqs.qza</code>：代表序列</li></ul><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime phylogeny align-to-tree-mafft-fasttree <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-sequences rep-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-alignment aligned-rep-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-masked-alignment masked-aligned-rep-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-tree unrooted-tree.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-rooted-tree rooted-tree.qza
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 导出进化树</span>
+</span></span><span style=display:flex><span>qiime tools <span style=color:#a2f>export</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path unrooted-tree.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path exported-tree 
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果文件:</p><ul><li>aligned-rep-seqs.qza: 多序列比对结果</li><li>masked-aligned-rep-seqs.qza: 过滤去除高变区后的多序列比对结果</li><li>rooted-tree.qza: 有根树，用于多样性分析</li><li>unrooted-tree.qza: 无根树</li><li>exported-tree/tree.nwk :标准树nwk文件。</li></ul></blockquote><p>此外，由工作流程我们可以知道，上面的步骤可以分多步生成输出文件：</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime alignment mafft --i-sequences rep-seqs.qza --o-alignment aligned-rep-seqs.qza 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>qiime alignment mask --i-alignment aligned-rep-seqs.qza --o-masked-alignment masked-aligned-rep-seqs.qza 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>qiime phylogeny fasttree --i-alignment masked-aligned-rep-seqs.qza --o-tree unrooted-tree.qza 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>qiime phylogeny midpoint-root --i-tree unrooted-tree.qza --o-rooted-tree rooted-tree.qza 
+</span></span></code></pre></td></tr></table></div></div><h1 id=4-alpha和beta多样性分析>4 Alpha和beta多样性分析</h1><p>QIIME 2的多样性分析使用<code>q2-diversity</code>插件，该插件支持计算α和β多样性指数、并应用相关的统计检验以及生成交互式可视化图表。我们将首先应用<code>core-metrics-phylogenetic</code>方法，该方法将<code>FeatureTable[Frequency]</code>(特征表[频率])抽平到用户指定的测序深度，然后计算几种常用的α和β多样性指数，并使用<code>Emperor</code>为每个β多样性指数生成主坐标分析（PCoA）图。默认情况下计算的方法有：</p><p><strong>划重点：理解下面4种alpha和beta多样性指数的所代表的生物学意义至关重要。</strong></p><ul><li><p>α多样性</p></li><li><ul><li>香农(Shannon’s)多样性指数（群落丰富度的定量度量，即包括丰富度<code>richness</code>和均匀度<code>evenness</code>两个层面）</li><li>可观测的OTU(Observed OTUs，群落丰富度的定性度量，只包括丰富度）</li><li>Faith’s系统发育多样性（包含特征之间的系统发育关系的群落丰富度的定性度量）</li><li>均匀度Evenness（或 Pielou’s均匀度；群落均匀度的度量）</li></ul></li><li><p>β多样性</p></li><li><ul><li>Jaccard距离（群落差异的定性度量，即只考虑种类，不考虑丰度）</li><li>Bray-Curtis距离（群落差异的定量度量，较常用）</li><li>非加权UniFrac距离（包含特征之间的系统发育关系的群落差异定性度量）</li><li>加权UniFrac距离（包含特征之间的系统发育关系的群落差异定量度量）</li></ul></li></ul><h2 id=1核心多样性>1）核心多样性</h2><p>输入数据：</p><ul><li><code>rooted-tree.qza</code>：有根树</li><li><code>table.qza</code>：特征表</li></ul><p>参数设置：</p><ul><li><code>--p-sampling-depth</code>：测序深度设置</li></ul><blockquote><p>依据 <strong>table.qzv（特征表统计）</strong>，如果数据量都很大，选最小的即可。如果有个别数据量非常小，去除最小值再选最小值</p></blockquote><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a2f>time</span> qiime diversity core-metrics-phylogenetic <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-phylogeny rooted-tree.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-sampling-depth <span style=color:#666>1103</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-dir core-metrics-results
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出对象(13个数据文件):</p><ul><li>Alpha多样性考虑进化的faith指数：core-metrics-results/faith_pd_vector.qza</li><li>Beta多样性unweighted_unifrac距离矩阵，不考虑丰度：core-metrics-results/unweighted_unifrac_distance_matrix.qza</li><li>Beta多样性基于Bray-Curtis距离PCoA的结果：core-metrics-results/bray_curtis_pcoa_results.qza</li><li>Alpha多样性香农指数：core-metrics-results/shannon_vector.qza。</li><li>等量重采样后的特征表：core-metrics-results/rarefied_table.qza</li><li>Beta多样性weighted_unifrac距离矩阵，考虑丰度：core-metrics-results/weighted_unifrac_distance_matrix.qza:</li><li>Beta多样性jaccard距离PCoA结果：core-metrics-results/jaccard_pcoa_results.qza</li><li>Alpha多样性observed otus指数：core-metrics-results/observed_otus_vector.qza</li><li>Beta多样性基于有权重的unifrac距离的PCoA结果：core-metrics-results/weighted_unifrac_pcoa_results.qza:</li><li>Beta多样性jaccard距离矩阵：core-metrics-results/jaccard_distance_matrix.qza:</li><li>Alpha多样性均匀度指数：core-metrics-results/evenness_vector.qza</li><li>Beta多样性Bray-Curtis距离矩阵：core-metrics-results/bray_curtis_distance_matrix.qza:</li><li>Beta多样性无权重的unifrac距离的PCoA结果：core-metrics-results/unweighted_unifrac_pcoa_results.qza:</li></ul><p><strong>输出对象(4种可视化结果)</strong>:</p><ul><li>core-metrics-results/unweighted_unifrac_emperor.qzv：无权重的unifrac距离PCoA结果采用emperor可视化。</li><li>core-metrics-results/jaccard_emperor.qzv：jaccard距离PCoA结果采用emperor可视化。</li><li>core-metrics-results/bray_curtis_emperor.qzv：Bray-Curtis距离PCoA结果采用emperor可视化。</li><li>core-metrics-results/weighted_unifrac_emperor.qzv：有权重的unifrac距离PCoA结果采用emperor可视化。</li></ul></blockquote><h2 id=2alpha多样性组间显著性分析和可视化>2）Alpha多样性组间显著性分析和可视化</h2><p>在计算多样性度量之后，我们可以开始在样本元数据的分组信息或属性值背景下探索样本的微生物组成差异。此信息存在于先前下载的示例元数据文件中。</p><p>输入数据：</p><ul><li>多样性值</li><li>sample-medata</li></ul><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 分组与faith_pd指数关系</span>
+</span></span><span style=display:flex><span>qiime diversity alpha-group-significance <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-alpha-diversity core-metrics-results/faith_pd_vector.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization core-metrics-results/faith-pd-group-significance.qzv
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 分组与Evenness均匀度关系</span>
+</span></span><span style=display:flex><span>qiime diversity alpha-group-significance <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-alpha-diversity core-metrics-results/evenness_vector.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization core-metrics-results/evenness-group-significance.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出可视化结果：</p><ul><li>core-metrics-results/faith-pd-group-significance.qzv。</li><li>core-metrics-results/evenness-group-significance.qzv。</li><li>图中可点Category选择分类方法，查看不同分组下箱线图间的分布与差别。图形下面的表格，详细详述组间比较的显著性和假阳性率统计。</li></ul></blockquote><h2 id=3beta多样性分析>3）Beta多样性分析</h2><blockquote><p>使用PERMANOVA方法（首先在Anderson 2001年的文章中描述）<code>beta-group-significance</code>分析分类元数据背景下的样本组合。以下命令将测试一组样本之间的距离，是否比来自其他组(例如，舌头、左手掌和右手掌)的样本彼此更相似，例如来自同一身体部位(例如肠)的样本。</p><p><code>--p-pairwise</code>参数，它将执行<strong>成对检验</strong>，结果将允许我们确定哪对特定组（例如，舌头和肠）彼此不同是否显著不同。这个命令运行起来可能很慢，尤其是当使用<code>--p-pairwise</code>参数，因为它是基于<strong>置换检验</strong>的。因此，我们将在元数据的特定列上运行该命令，而不是在其适用的所有元数据列上运行该命令。这里，我们将使用两个示例元数据列将此应用到未加权的UniFrac距离，如下所示。</p></blockquote><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 按subject分组，统计unweighted_unifrace距离的组间是否有显著差异,其他的分组分析类似。</span>
+</span></span><span style=display:flex><span>qiime diversity beta-group-significance <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.txt <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-column subject <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization core-metrics-results/unweighted-unifrac-subject-significance.qzv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-pairwise
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 可视化三维展示unweighted-unifrac的主坐标轴分析</span>
+</span></span><span style=display:flex><span>qiime emperor plot <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-pcoa core-metrics-results/unweighted_unifrac_pcoa_results.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.txt <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-custom-axes weight <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization core-metrics-results/unweighted-unifrac-emperor-weight.qzv
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 可视化三维展示bray-curtis的主坐标轴分析</span>
+</span></span><span style=display:flex><span>qiime emperor plot <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-pcoa core-metrics-results/unweighted_unifrac_pcoa_results.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.txt <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-custom-axes height <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization core-metrics-results/unweighted-unifrac-emperor-height.qzv
+</span></span></code></pre></td></tr></table></div></div><h2 id=4alpha稀释曲线>4）Alpha稀释曲线</h2><p><strong>Alpha rarefaction plotting</strong></p><p>用途：检测测序量是否充足</p><p>原理：使用qiime diversity alpha-rarefaction可视化器来探索α多样性与采样深度的关系。该可视化器在多个采样深度处计算一个或多个α多样性指数，范围介于1（可选地&ndash;p-min-depth控制）和作为&ndash;p-max-depth提供值之间。在每个采样深度，将生成10个抽样表，并对表中的所有样本计算alpha多样性指数计算。</p><blockquote><p>参数：</p><ul><li><p><code>--p-max-depth</code>: 采样深度最大值</p></li><li><p><code>--p-iterations</code>: 迭代次数（在每个采样深度计算的稀疏表）</p></li><li><p><code>--m-metadata-file</code>: 样本元数据参数，可以基于元数据对样本进行分组。</p></li></ul></blockquote><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime diversity alpha-rarefaction <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-phylogeny rooted-tree.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-max-depth <span style=color:#666>4000</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization alpha-rarefaction.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>可视化将有两个图。顶部图是α稀疏图，主要用于确定样品的丰富度是否已被完全观察或测序。如果图中的线在沿x轴的某个采样深度处看起来“平坦化”（即接近零斜率），则表明收集超出该采样深度的其他序列将不可能会有其他的OTU（feature）产生。如果图中的线条没有达到平衡，这可能是因为尚未完全观察到样品的丰富程度（因为收集的序列太少），或者它可能表明在数据中存在大量的测序错误（被误认为是新的多样性）。底部图表示当特征表稀疏到每个采样深度时每个组中保留的样本数。</p><p>5个样本被分成两组weight,图中显示即两条线，每组的样本数分别为2和3。</p></blockquote><h1 id=5-物种组成分析>5 物种组成分析</h1><p>为FeatureData[Sequence]的序列进行物种注释。我们将使用经过Naive Bayes分类器预训练的，并由q2-feature-classifier插件来完成这项工作。这个分类器是在Greengenes 13_8 99% OTU上训练的，其中序列被修剪到仅包括来自16S区域的250个碱基，该16S区域在该分析中采用V4区域的515F/806R引物扩增并测序。我们将把这个分类器应用到序列中，并且可以生成从序列到物种注释结果关联的可视化。</p><blockquote><p>注意：物种分类器根据你特定的样品制备和测序参数进行训练时表现最好，包括用于扩增的引物和测序序列的长度。因此，一般来说，你应该按照使用q2-feature-classifier的训练特征分类器的说明来训练自己的物种分类器。我们在数据资源页面上提供了一些通用的分类器，包括基于Silva的16S分类器，不过将来我们可能会停止提供这些分类器，而让用户训练他们自己的分类器，这将与他们的序列数据最相关。</p></blockquote><h2 id=1物种注释分类器>1）物种注释分类器</h2><blockquote><ul><li><p>可以下载已存在的分类器，<a href=https://docs.qiime2.org/2022.2/data-resources/>这里</a>有Silva和Greengenes的全长和V4区的分类器供下载直接使用。</p></li><li><p>也可以自己训练，下面介绍的是自己训练方法</p><p>训练原因：不同实验的扩增区域不同，鉴定物种分类的精度不同，提前的训练可以让分类结果更准确。但目前ITS区域训练对结果准确性提高不大，可以不用训练。</p></li><li><p>数据来源：</p></li></ul></blockquote><p>输入数据：</p><ul><li><p>代表序列:<code>rep-seqs.qza</code></p></li><li><p>数据库文件:https://docs.qiime2.org/2022.2/data-resources/</p><blockquote><p>16S可选 Silva 132/128/123，RDP trainset 16/14, Greengene 13.8；真菌ITS选择UNITE</p></blockquote></li></ul><h3 id=-将数据导入到qiime2对象>① 将数据导入到QIIME2对象</h3><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 创建工作目录</span>
+</span></span><span style=display:flex><span>mkdir -p training-feature-classifiers
+</span></span><span style=display:flex><span><span style=color:#a2f>cd</span> training-feature-classifiers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 下载数据库文件(greengenes)</span>
+</span></span><span style=display:flex><span>wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 解压</span>
+</span></span><span style=display:flex><span>tar -zxvf gg_13_8_otus.tar.gz
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 使用rep_set文件中的99_otus.fasta数据和taxonomy中的99_OTU_taxonomy.txt数据，也可根据需要选择其他相似度。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 导入参考序列</span>
+</span></span><span style=display:flex><span>qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type <span style=color:#b44>&#39;FeatureData[Sequence]&#39;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path 99_otus.fasta <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path ref-seq-bacteria.qza
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 导入物种分类信息</span>
+</span></span><span style=display:flex><span>qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type <span style=color:#b44>&#39;FeatureData[Taxonomy]&#39;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-format HeaderlessTSVTaxonomyFormat <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path 99_otu_taxonomy.txt <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path ref-taxonomy-bacteria.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p><code>--input-format HeaderlessTSVTaxonomyFormat</code>#Greengenes序列物种注释文件为tsv格式</p><p>输出对象：</p><ul><li><code>99_otus.qza</code>: 按99%聚类的参考数据库</li><li><code>rep-seqs.qza</code>: 预训练的参考数据库。</li><li><code>ref-taxonomy.qza</code>: 按99%聚类的参考数据库</li></ul></blockquote><h3 id=-获取仅保留细菌的分类信息可选>② 获取仅保留细菌的分类信息（可选）</h3><p>可省略。由于部分数据库中同时含有细菌和古菌，有时还含有真核生物的特征序列和分类信息，在比对过程中可能会导致菌属比对错误等情况的出现，所以提取单一菌属序列及分类信息有助于提高比对的准确度。此步骤可以视测序数据实际情况而定，在处理真菌ITS数据时，不需要提取单一菌属。</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 仅保留细菌的代表序列命令： </span>
+</span></span><span style=display:flex><span>qiime taxa filter-seqs 
+</span></span><span style=display:flex><span>--i-sequences ref-seqs.qza 
+</span></span><span style=display:flex><span>--i-taxonomy 99_otu_taxonomy.qza 
+</span></span><span style=display:flex><span>--p-include Bacteria 
+</span></span><span style=display:flex><span>--o-filtered-sequences ref-seqs-bacteria.qza
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 仅保留细菌的注释信息命令：</span>
+</span></span><span style=display:flex><span>qiime rescript filter-taxa 
+</span></span><span style=display:flex><span>--i-taxonomy 99_otu_taxonomy.qza 
+</span></span><span style=display:flex><span>--m-ids-to-keep-file ref-seqs-bacteria.qza 
+</span></span><span style=display:flex><span>--o-filtered-taxonomy ref-taxonomy-bacteria.qza
+</span></span></code></pre></td></tr></table></div></div><h3 id=-提取扩增区序列>③ 提取扩增区序列</h3><p>2012年Werner等人研究表明，当一个朴素贝叶斯(Naive Bayes)分类器只训练被测序的目标序列的区域时，16S rRNA基因序列的分类准确度会提高。</p><p>参数：</p><ul><li><code>p-f-primer</code>：正向引物</li><li><code>p-r-primer</code>：反向引物</li><li><code>p-trunc-len</code>：碱基数</li><li><code>min-length</code>和<code>max-length</code>：排除使用这些引物远远超出预期长度分布的模拟扩增结果</li></ul><blockquote><p>注意：如果你的引物序列长度大于30nt，它们很可能包含一些非生物序列：例如接头、连接物或条形码序列</p></blockquote><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 按我们测序的引物来提取参考序列中的一段</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime feature-classifier extract-reads <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-sequences ref-seqs-Bacteria.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-f-primer CCTACGGGNGGCWGCAG <span style=color:#b62;font-weight:700>\ </span>     <span style=color:#080;font-style:italic>#341F引物</span>
+</span></span><span style=display:flex><span>  --p-r-primer GACTACHVGGGTATCTAATCC <span style=color:#b62;font-weight:700>\ </span> <span style=color:#080;font-style:italic>#805R引物</span>
+</span></span><span style=display:flex><span>  --p-trunc-len <span style=color:#666>120</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-min-length <span style=color:#666>100</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-max-length <span style=color:#666>400</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-reads ref-seqs.qza <span style=color:#080;font-style:italic>#提取的扩增区域</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 纯净版</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime feature-classifier extract-reads <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-sequences ref-seq-bacteria.qza<span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-f-primer CCTACGGGNGGCWGCAG <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-r-primer GACTACHVGGGTATCTAATCC <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-reads ref-seqs.qza
+</span></span></code></pre></td></tr></table></div></div><h3 id=-训练分类集>④ 训练分类集</h3><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 基于筛选的指定区段，生成实验特异的分类集，6m44.452s</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime feature-classifier fit-classifier-naive-bayes <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-reference-reads ref-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-reference-taxonomy  ref-taxonomy-bacteria.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-classifier classifier-bacteria.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p><strong>输出对象</strong>：</p><ul><li><code>classifier.qza</code>: 分类器的训练结果。</li></ul></blockquote><h3 id=分类真菌its序列>分类真菌ITS序列</h3><p>在Unite参考数据库上训练的Fungal ITS分类器不会从提取/修剪引物扩增区域的方法中改善结果。建议在完整参考序列上训练Unite分类器。</p><blockquote><p>推荐使用“developer”版本序列，因为标准版序列的已经被修剪到指定区域（不包括可能存在于标准引物产生的扩增子中的侧翼rRNA基因的部分）。</p><ul><li>qiime_ver8_dynamic ：98%</li></ul></blockquote><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># unite数据库下载：https://plutof.ut.ee/#/doi/10.15156/BIO/1264708</span>
+</span></span><span style=display:flex><span>tar -zxvf sh_qiime_release_10.05.2021.tgz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 参考序列导入</span>
+</span></span><span style=display:flex><span>qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type <span style=color:#b44>&#39;FeatureData[Sequence]&#39;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path sh_refs_qiime_ver8_99_10.05.2021_dev.fasta <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path ref-seq-fungi.qza
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 注释信息导入</span>
+</span></span><span style=display:flex><span>qiime tools import <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --type <span style=color:#b44>&#39;FeatureData[Taxonomy]&#39;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-format HeaderlessTSVTaxonomyFormat <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --input-path sh_taxonomy_qiime_ver8_99_10.05.2021_dev.txt <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --output-path ref-taxonomy-fungi.qza
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 以完整序列生成分类集 10m54.063s</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime feature-classifier fit-classifier-naive-bayes <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-reference-reads ref-seq-fungi.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-reference-taxonomy ref-taxonomy-fungi.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-classifier classifier-fungi.qza
+</span></span></code></pre></td></tr></table></div></div><h2 id=2物种注释和可视化>2）物种注释和可视化</h2><p>输入：
+classifier.qza：分类器
+rep-seqs.qza：代表序列</p><p>输出：
+taxonomy.qza: 物种注释结果
+classifier.qza: 分类器的训练结果</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 使用训练后的分类集对结果进行注释 0m43.783s</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime feature-classifier classify-sklearn <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-classifier classifier-bacteria.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-reads rep-seqs.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-classification taxonomy.qza2 <span style=color:#080;font-style:italic>#物种注释结果</span>
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 可视化注释的结果</span>
+</span></span><span style=display:flex><span>qiime metadata tabulate <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-input-file taxonomy.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization taxonomy.qzv
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 交互式物种组成堆叠柱状图</span>
+</span></span><span style=display:flex><span>qiime taxa barplot <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-taxonomy taxonomy.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization taxa-bar-plots.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>注释结果中*_uncultured(如g_uncultured)表示注释上了数据库中已经被报道的暂未纯培养的物种。分类学比对后根据置信度阈值筛选，会有某些分类谱系在某一分类级别分值较低，在统计时以Unidentified标记；Unclassified表示数据库中没有找到对应于该序列的分类信息。Unclassified Tags指没有获得注释信息。若无此类标记表示数据库中没有参考序列（如 k__Bacteria; p__Proteobacteria表示在纲水平以下无物种信息）。</p></blockquote><h1 id=6-ancom组间差异丰度分析>6 ANCOM组间差异丰度分析</h1><p><strong>Differential abundance testing with ANCOM</strong></p><p>ANCOM(Analysis of composition of microbiomes)是一种比较微生物数据中物种在组间显著性差异的分析方法，结果和LEfSe类似。ANCOM可用于识别不同样本组中丰度差异的特征。与任何生物信息学方法一样，在使用ANCOM之前，你应该了解ANCOM的假设和局限性。我们建议在使用这种方法之前先回顾一下ANCOM的论文 <a href=https://www.ncbi.nlm.nih.gov/pubmed/26028277>https://www.ncbi.nlm.nih.gov/pubmed/26028277</a>。</p><blockquote><p>注意：差异丰度检验在微生物学分析中是一个热门的研究领域。有两个QIIME 2插件可用：<code>q2-gneiss</code>和<code>q2-composition</code>。本节使用<code>q2-composition</code>，但是如果你想了解更多，还有一个教程在另外的数据集上使用<code>q2-gneiss</code>，在后面有详细介绍。</p><p>将ANCOM的性能与t检验和零膨胀高斯方法(Zero Inflated Gaussian，ZIG)进行了比较，ZIG方法用于推断两个或多个种群的平均分类群丰度。<strong>ANCOM在提高统计能力的同时，可将FDR控制在理想的水平</strong>。而t检验和ZIG则会使得FDR膨胀，在某些情况下t检验的膨胀可高达68%，ZIG的膨胀可高达60%</p></blockquote><p>ANCOM是在<code>q2-composition</code>插件中实现的。ANCOM假设很少（小于约25%）的特征在组之间改变。<strong>如果你期望在组之间有更多的特性正在改变，那么就不应该使用ANCOM</strong>，因为它更容易出错（I类/假阴性和II类/假阳性错误都有可能增加）。因为我们预期身体部位的许多特征都会发生变化，所以在本教程中，我们将过滤完整的特征表后只包含肠道样本。然后，我们将应用ANCOM来确定哪种（如果有的话）序列变体在我们两个受试者的肠道样本中丰度存在差异。</p><p>我们将首先创建一个只包含肠道样本的特征表。（要了解关于筛选的更多信息，请参阅数据筛选教程。）</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime feature-table filter-samples <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-where <span style=color:#b44>&#34;[body-site]=&#39;gut&#39;&#34;</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-filtered-table gut-table.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出对象：</p><ul><li>gut-table.qza：只包含肠道样本的特征表。</li></ul></blockquote><p>ANCOM基于每个样本的特征频率对<code>FeatureTable[Composition]</code>进行操作，但是不能容忍零。为了构建组成composition 对象，必须提供一个添加伪计数<code>add-pseudocount</code>（一种遗失值插补方法）的<code>FeatureTable[Frequency]</code>对象，这将产生<code>FeatureTable[Composition]</code>对象。</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime composition add-pseudocount <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table gut-table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-composition-table comp-gut-table.qza
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果:</p><ul><li>comp-gut-table.qza: 组成型特征表，无零值。</li></ul></blockquote><p>接下来可用ANCON对两组的特征进行丰度差异的比较了。</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a2f>time</span> qiime composition ancom <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table comp-gut-table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-column subject <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization ancom-subject.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出结果:</p><ul><li><code>ancom-subject.qzv</code>: 按Subject分类比较结果。</li></ul></blockquote><p>我们也经常对在特定的分类学层次上执行差异丰度检验。为此，我们可以在感兴趣的分类级别上折叠<code>FeatureTable[Frequency]</code>中的特性，然后重新运行上述步骤。在本教程中，我们将特征表折叠到属级别（即Greengenes分类法的第6级）。</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>qiime taxa collapse <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table gut-table.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-taxonomy taxonomy.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --p-level <span style=color:#666>6</span> <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-collapsed-table gut-table-l6.qza
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>qiime composition add-pseudocount <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table gut-table-l6.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-composition-table comp-gut-table-l6.qza
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>qiime composition ancom <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-table comp-gut-table-l6.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-metadata-column subject <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization l6-ancom-subject.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>输出对象:</p><ul><li>gut-table-l6.qza: 按属水平折叠的特征表。</li><li>comp-gut-table-l6.qza: 属水平筛选肠样本的相对丰度组成表。</li></ul><p>输出可视化结果:</p><ul><li>l6-ancom-Subject.qzv: 属水平差异比较结果。</li></ul></blockquote><h1 id=7-功能基因预测分析>7 功能基因预测分析</h1><p>使用PICRUSt软件通过比对16S测序数据获得的物种组成信息，推测样本中的功能基因组成，从而分析不同样本或分组之间在功能上的差异。</p><p>首先需要对生成的OTU-table进行标准化（不同的种属菌包含的16S拷贝数不相同）；然后，通过每个OTU对应的greengene id，即可获得OTU对应的KEGG和COG家族信息，从而计算该KEGG和COG的丰度并从KEGG数据库的信息中获得Pathway、EC信息、OTU丰度计算各功能类别的丰度。</p><h1 id=8-其它>8 其它</h1><p>目前可能用不上，但以后可能用上的一些补充资料，或补充过程</p><h2 id=拆分样品>拆分样品</h2><p>为了将混合序列进行样本拆分，我们需要知道哪个条形码序列与每个样本相关联。此信息包含在样品元数据文件中。</p><div class=highlight><div style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#080;font-style:italic># 单端序列拆分</span>
+</span></span><span style=display:flex><span>qiime demux emp-single <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-seqs emp-single-end-sequences.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-barcodes-file sample-metadata.tsv <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --m-barcodes-column BarcodeSequence <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-per-sample-sequences demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-error-correction-details demux-details.qza
+</span></span><span style=display:flex><span><span style=color:#080;font-style:italic># 结果统计(可视化)</span>
+</span></span><span style=display:flex><span><span style=color:#a2f>time</span> qiime demux summarize <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --i-data demux.qza <span style=color:#b62;font-weight:700>\
+</span></span></span><span style=display:flex><span><span style=color:#b62;font-weight:700></span>  --o-visualization demux.qzv
+</span></span></code></pre></td></tr></table></div></div><blockquote><p><code>demux.qza</code>包含样本拆分后的序列。</p><p><code>demux-details.qza</code>包括Golay标签错误校正的详细</p><p><code>demux.qzv</code>为输出结果</p><ul><li>样本拆分结果统计结果——样本数据量可视化图表。主要分为三部分：上部为摘要；中部为样本不同数据量分布频率柱状图，可下载PDF，下部为每个样本的测序量。上方面板还可切换至交互式质量图<code>Interactive Qaulity Plot</code></li><li>交互式质量图<code>Interactive Qaulity Plot</code>查看页面。同样为三部分：上部为每个位置碱基的质量分布交互式箱线图，鼠标点击在方面(中部)文字和表格中显示鼠标所在位置碱基的详细信息；下部为拆分样本的长度摘要(一般无差别，略)。</li><li>所有QIIME 2可视化对象（即，使用<code>--o-visualization</code>参数指定的文件）将生成一个<code>.qzv</code>文件。你可以使用<code>qiime tools view</code>查看这些文件。但这条命令的显示需要图形界面的支持</li></ul></blockquote><h2 id=微生物组生物信息学评估-microbiome-bioinformatics-benchmarking>微生物组生物信息学评估 Microbiome bioinformatics benchmarking</h2><p>许多微生物组生物信息的校准比较研究是使用“模拟群落”进行的。模拟群落是一种人工制作的微生物群，这些微生物的种类和丰度是已知的，比如：：<a href=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531572/>Bokulich et al., (2013)</a>和<a href=http://www.pnas.org/content/108/Supplement_1/4516.full>Caporaso et al.(2011)</a>。公共模拟群落可以从这个链接下载<a href=http://mockrobiota.caporasolab.us>mockrobiota</a>，关于此模拟群落的信息在这篇文章中有详细介绍：<a href=http://msystems.asm.org/content/1/5/e00062-16>Bokulich et al., (2016)</a></p><h1 id=参考>参考</h1><p><a href=https://blog.csdn.net/weixin_42126262/article/details/107285753>QIIME 2 16S扩增子分析基础流程及常用命令（新手友好向）</a></p><p><a href=https://blog.csdn.net/woodcorpse/article/details/88785361>NAR：UNITE真菌鉴定ITS数据库——处理未分类和并行分类(数据库文章阅读模板)</a> 很帮助的阅读模板</p><p><a href=https://blog.csdn.net/Lincoln_redwine/article/details/115661665>ITS注释分类器训练</a></p></div><footer class=post-footer><div class=addthis_inline_share_toolbox></div><div class=post-nav><div class=article-copyright><div class=article-copyright-img><img src=/img/qq_qrcode.png width=129px height=129px><div style=text-align:center>QQ扫一扫交流</div></div><div class=article-copyright-info><p><span>声明：</span>微生物组qimme2分析</p><p><span>链接：</span>http://ruqinga.github.io/post/qimme2/</p><p><span>作者：</span>了不起的雷心怡</p><p><span>声明： </span>本博客文章除特别声明外，均采用 <a href=https://creativecommons.org/licenses/by-nc-sa/3.0/ target=_blank style=text-decoration:underline>CC BY-NC-SA 3.0</a>许可协议，转载请注明出处！</p></div></div><div class=clear></div></div><div class=reward-qr-info><div>创作实属不易，如有帮助，那就打赏博主些许茶钱吧 ^_^</div><button id=rewardButton disable=enable onclick='var qr=document.getElementById("QR");qr.style.display==="none"?qr.style.display="block":qr.style.display="none"'>
+<span>赏</span></button><div id=QR style=display:none><div id=wechat style=display:inline-block><img id=wechat_qr src=/img/wechat-pay.png alt="WeChat Pay"><p>微信打赏</p></div><div id=alipay style=display:inline-block><img id=alipay_qr src=/img/ali-pay.png alt=Alipay><p>支付宝打赏</p></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=http://ruqinga.github.io/post/%E7%BB%9F%E8%AE%A1%E5%AD%A6/ rel=next title=统计学基础><i class="fa fa-chevron-left"></i> 统计学基础</a></div><div class="post-nav-prev post-nav-item"><a href=http://ruqinga.github.io/post/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/ rel=prev title=微生物组概述>微生物组概述
+<i class="fa fa-chevron-right"></i></a></div></div><div id=wcomments></div></footer></article></section></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+<span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview>站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/img/avatar.jpg alt=了不起的雷心怡><p class=site-author-name itemprop=name>了不起的雷心怡</p><p class="site-description motion-element" itemprop=description>真正的优秀不是别人逼出来的，而是自己与自己死磕</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/post/><span class=site-state-item-count>13</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>6</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>4</span>
+<span class=site-state-item-name>标签</span></a></div></nav><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/ruqinga/ target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>
+GitHub</a></span></div><div class="tagcloud-of-blogroll motion-element tagcloud-of-blogroll-inline"><div class=tagcloud-of-blogroll-title><i class="fa fa-fw fa-tags"></i>
+标签云</div><ul class=tagcloud-of-blogroll-list><li class=tagcloud-of-blogroll-item><a href=/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2>个人博客</a></li><li class=tagcloud-of-blogroll-item><a href=/tags/git>Git</a></li><li class=tagcloud-of-blogroll-item><a href=/tags/hugo>Hugo</a></li><li class=tagcloud-of-blogroll-item><a href=/tags/%E5%9B%BE%E5%BA%8A>图床</a></li></ul></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#导论>导论</a></li><li><a href=#1-前处理>1 前处理</a><ul><li><a href=#1质检>1）质检</a></li><li><a href=#2切除引物>2）切除引物</a></li><li><a href=#3数据准备与导入>3）数据准备与导入</a></li></ul></li><li><a href=#2-质控合并双端序列>2 质控，合并双端序列</a><ul><li><a href=#方法1-dada2>方法1. DADA2</a></li><li><a href=#方法2-deblur>方法2. Deblur</a><ul><li><a href=#-数据质控>① 数据质控</a></li><li><a href=#-去噪>② 去噪</a></li><li><a href=#-可视化>③ 可视化</a></li></ul></li><li><a href=#特征表和特征序列汇总>特征表和特征序列汇总</a></li></ul></li><li><a href=#3-构建进化树用于多样性分析>3 构建进化树用于多样性分析</a></li><li><a href=#4-alpha和beta多样性分析>4 Alpha和beta多样性分析</a><ul><li><a href=#1核心多样性>1）核心多样性</a></li><li><a href=#2alpha多样性组间显著性分析和可视化>2）Alpha多样性组间显著性分析和可视化</a></li><li><a href=#3beta多样性分析>3）Beta多样性分析</a></li><li><a href=#4alpha稀释曲线>4）Alpha稀释曲线</a></li></ul></li><li><a href=#5-物种组成分析>5 物种组成分析</a><ul><li><a href=#1物种注释分类器>1）物种注释分类器</a><ul><li><a href=#-将数据导入到qiime2对象>① 将数据导入到QIIME2对象</a></li><li><a href=#-获取仅保留细菌的分类信息可选>② 获取仅保留细菌的分类信息（可选）</a></li><li><a href=#-提取扩增区序列>③ 提取扩增区序列</a></li><li><a href=#-训练分类集>④ 训练分类集</a></li><li><a href=#分类真菌its序列>分类真菌ITS序列</a></li></ul></li><li><a href=#2物种注释和可视化>2）物种注释和可视化</a></li></ul></li><li><a href=#6-ancom组间差异丰度分析>6 ANCOM组间差异丰度分析</a></li><li><a href=#7-功能基因预测分析>7 功能基因预测分析</a></li><li><a href=#8-其它>8 其它</a><ul><li><a href=#拆分样品>拆分样品</a></li><li><a href=#微生物组生物信息学评估-microbiome-bioinformatics-benchmarking>微生物组生物信息学评估 Microbiome bioinformatics benchmarking</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div></section></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright><span class=copyright-year>&copy; 2010 - 2023</span>
+<span class=with-love><i class="fa fa-heart"></i></span>
+<span class=copyright-author>我生来就是高山</span></div><div class=powered-info><span class=powered-by>Powered by - <a class=powered-link href=//gohugo.io target=_blank title=hugo>Hugo v0.95.0</a></span>
+<span class=separator-line>/</span>
+<span class=theme-info>Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next target=_blank>NexT</a></span></div><div class=vistor-info><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<span class=site-uv><i class="fa fa-user"></i>
+<span class=busuanzi-value id=busuanzi_value_site_uv></span></span>
+<span class=separator-line>/</span>
+<span class=site-pv><i class="fa fa-eye"></i>
+<span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div><div class=license-info><span class=storage-info>Storage by
+<a href style=font-weight:700 target=_blank></a></span>
+<span class=separator-line>/</span>
+<span class=license-num><a href target=_blank></a></span></div></div></footer><div class=back-to-top><i class="fa fa-arrow-up"></i>
+<span id=scrollpercent><span>0</span>%</span></div></div><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js></script>
+<script type=text/javascript src=/js/search.js></script>
+<script type=text/javascript src=/js/affix.js></script>
+<script type=text/javascript src=/js/scrollspy.js></script>
+<script type=text/javascript>function detectIE(){var e=window.navigator.userAgent,t=e.indexOf("MSIE "),n=e.indexOf("Trident/"),s=e.indexOf("Edge/");return t>0||n>0||s>0?-1:1}function getCntViewHeight(){var t=$("#content").height(),e=$(window).height(),n=t>e?t-e:$(document).height()-e;return n}function getScrollbarWidth(){var e=$("<div />").addClass("scrollbar-measure").prependTo("body"),t=e[0],n=t.offsetWidth-t.clientWidth;return e.remove(),n}function registerBackTop(){var t=50,e=$(".back-to-top");$(window).on("scroll",function(){e.toggleClass("back-to-top-on",window.pageYOffset>t);var s=$(window).scrollTop(),o=getCntViewHeight(),i=s/o,n=Math.round(i*100),a=n>100?100:n;$("#scrollpercent>span").html(a)}),e.on("click",function(){$("html,body").animate({scrollTop:0,screenLeft:0},800)})}function initScrollSpy(){var e=".post-toc",s=$(e),t=".active-current";s.on("activate.bs.scrollspy",function(){var t=$(e+" .active").last();n(),t.addClass("active-current")}).on("clear.bs.scrollspy",n),$("body").scrollspy({target:e});function n(){$(e+" "+t).removeClass(t.substring(1))}}function initAffix(){var e=$(".header-inner").height(),t=parseInt($(".main").css("padding-bottom"),10),n=e+10;$(".sidebar-inner").affix({offset:{top:n,bottom:t}}),$(document).on("affixed.bs.affix",function(){updateTOCHeight(document.body.clientHeight-100)})}function initTOCDimension(){$(window).on("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){var e=document.body.clientHeight-100;updateTOCHeight(e)},0)}),updateTOCHeight(document.body.clientHeight-100);var e,t=getScrollbarWidth();$(".post-toc").css("width","calc(100% + "+t+"px)")}function updateTOCHeight(e){e=e||"auto",$(".post-toc").css("max-height",e)}$(function(){var t=$(".header-inner").height()+10,n,s,e,o;$("#sidebar").css({'margin-top':t}).show(),n=parseInt($("#sidebar").css("margin-top")),s=parseInt($(".sidebar-inner").css("height")),e=n+s,o=$(".content-wrap").height(),o<e&&$(".content-wrap").css("min-height",e),$(".site-nav-toggle").on("click",function(){var e=$(".site-nav"),o=$(".toggle"),t="site-nav-on",i="toggle-close",n=e.hasClass(t),a=n?"slideUp":"slideDown",s=n?"removeClass":"addClass";e.stop()[a]("normal",function(){e[s](t),o[s](i)})}),registerBackTop(),initScrollSpy(),initAffix(),initTOCDimension(),$(".sidebar-nav-toc").click(function(){$(this).addClass("sidebar-nav-active"),$(this).next().removeClass("sidebar-nav-active"),$("."+$(this).next().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)}),$(".sidebar-nav-overview").click(function(){$(this).addClass("sidebar-nav-active"),$(this).prev().removeClass("sidebar-nav-active"),$("."+$(this).prev().attr("data-target")).toggle(500),$("."+$(this).attr("data-target")).toggle(500)})})</script><script src=//cdn.bootcdn.net/ajax/libs/imageviewer/0.1.0/viewer.min.js></script>
+<script type=text/javascript>$(function(){$(".post-body").viewer()})</script><script type=text/javascript>$(function(){detectIE()>0?$.getScript(document.location.protocol+"//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js",function(){new Waline({el:"#wcomments",visitor:!0,avatar:"wavatar",avatarCDN:"https://sdn.geekzu.org/avatar/",avatarForce:!1,wordLimit:"200",placeholder:" 欢迎留下您的宝贵建议，请填写您的昵称和邮箱便于后续交流. ^_^ ",requiredFields:["nick","mail"],serverURL:"Your WalineSerURL",lang:"zh-cn"})}):$("#wcomments").html("抱歉，Waline插件不支持IE或Edge，建议使用Chrome浏览器。")})</script><script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=Your%20AddthisId"></script>
+<script>(function(){var e=document.createElement("script"),t,n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
