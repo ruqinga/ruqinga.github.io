@@ -1,0 +1,5 @@
+e:                          
+cd github\ruqing\public     
+git add .                           
+git commit -m "blog auto save"      
+git push -u origin main 
