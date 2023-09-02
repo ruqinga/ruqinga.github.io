@@ -3,18 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ruqinga.github.io/categories/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ruqinga.github.io/posts/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ruqinga.github.io/</loc>
+    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ruqinga.github.io/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</loc>
+    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</loc>
+    <lastmod>2022-05-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ruqinga.github.io/categories/rna-seq/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ruqinga.github.io/posts/rna-seq-%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ruqinga.github.io/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ruqinga.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</loc>
@@ -50,9 +56,5 @@
     <loc>https://ruqinga.github.io/series/</loc>
   </url><url>
     <loc>https://ruqinga.github.io/tags/</loc>
-  </url><url>
-    <loc>https://ruqinga.github.io/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</loc>
-  </url><url>
-    <loc>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</loc>
   </url>
 </urlset>
