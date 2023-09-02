@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ruqing a</title>
-    <link>/categories/</link>
+    <link>https://ruqinga.github.io/categories/</link>
     <description>Recent content in Categories on Ruqing a</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ruqinga.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rna-seq</title>
-      <link>/categories/rna-seq/</link>
+      <link>https://ruqinga.github.io/categories/rna-seq/</link>
       <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>/categories/rna-seq/</guid>
+      <guid>https://ruqinga.github.io/categories/rna-seq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>微生物组</title>
-      <link>/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</link>
+      <link>https://ruqinga.github.io/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</guid>
+      <guid>https://ruqinga.github.io/categories/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</guid>
       <description></description>
     </item>
     
