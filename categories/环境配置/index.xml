@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>环境配置 on Ruqing a</title><link>https://ruqinga.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link><description>Recent content in 环境配置 on Ruqing a</description><generator>Hugo</generator><language>en</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">WANG Chucheng&lt;/a> and &lt;a href="https://www.ruiqima.com/">MA Ruiqi&lt;/a></copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ruqinga.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml"/><item><title>个人博客搭建：hugo+github+picgo+github_action</title><link>https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/</link><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/</guid><description>&lt;p>之前博客没能持续更新，主要是更新步骤太繁琐了：
+1.本地写好 md 文件
+2.picgo 上传图片至github
+3.hugo build 生成静态网页需要的 ./public
+4.git push&lt;/p>
+&lt;p>这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观&lt;/p></description></item></channel></rss>

@@ -1,0 +1,114 @@
+<!doctype html><html lang=en dir=ltr><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>个人博客搭建：hugo+github+picgo+github_action | Ruqing a</title>
+<meta name=generator content="Hugo Eureka 0.9.3"><link rel=stylesheet href=https://ruqinga.github.io/css/eureka.min.c000e20ee83e983a6da50f36cc965ffaab7a5112d85459aae8096796b03fa59f32bc75c8322942369757c3c770561bfb.css><script defer src=https://ruqinga.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js></script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js crossorigin></script><link rel=stylesheet href=https://ruqinga.github.io/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css media=print onload='this.media="all",this.onload=null'><script defer type=text/javascript src=https://ruqinga.github.io/js/fontawesome.min.8f55fc818d6fce0446d0f57d11099812f13adb5a0b8eba42ebb0eb390415a166430395f8b6fa40eb7af6a7ec5a0bd89a.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js integrity=sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0 crossorigin></script><link rel=icon type=image/png sizes=32x32 href=https://ruqinga.github.io/images/icon_hu7508083143451182185.png><link rel=apple-touch-icon sizes=180x180 href=https://ruqinga.github.io/images/icon_hu1727792108807623462.png><meta name=description content="之前博客没能持续更新，主要是更新步骤太繁琐了：
+1.本地写好 md 文件
+2.picgo 上传图片至github
+3.hugo build 生成静态网页需要的 ./public
+4.git push
+这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://ruqinga.github.io/posts/"},{"@type":"ListItem","position":2,"name":"个人博客搭建：hugo+github+picgo+github_action","item":"https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/"},"headline":"个人博客搭建：hugo\u002bgithub\u002bpicgo\u002bgithub_action | Ruqing a","datePublished":"2025-09-01T00:00:00+00:00","dateModified":"2025-09-01T00:00:00+00:00","wordCount":469,"publisher":{"@type":"Person","name":"Ruqing","logo":{"@type":"ImageObject","url":"https://ruqinga.github.io/images/icon.png"}},"description":"\u003cp\u003e之前博客没能持续更新，主要是更新步骤太繁琐了：\n1.本地写好 md 文件\n2.picgo 上传图片至github\n3.hugo build 生成静态网页需要的 .\/public\n4.git push\u003c\/p\u003e\n\u003cp\u003e这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观\u003c\/p\u003e"}</script><meta property="og:title" content="个人博客搭建：hugo+github+picgo+github_action | Ruqing a"><meta property="og:type" content="article"><meta property="og:image" content="https://ruqinga.github.io/images/icon.png"><meta property="og:url" content="https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/"><meta property="og:description" content="之前博客没能持续更新，主要是更新步骤太繁琐了：
+1.本地写好 md 文件
+2.picgo 上传图片至github
+3.hugo build 生成静态网页需要的 ./public
+4.git push
+这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观"><meta property="og:locale" content="en"><meta property="og:site_name" content="Ruqing a"><meta property="article:published_time" content="2025-09-01T00:00:00+00:00"><meta property="article:modified_time" content="2025-09-01T00:00:00+00:00"><meta property="article:section" content="posts"><body class="flex min-h-screen flex-col"><header class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"><div class="mx-auto w-full max-w-screen-xl"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="me-6 text-primary-text text-xl font-bold">Ruqing a</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item me-4">Posts</a>
+<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Docs</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>Light</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>Dark</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>Auto</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="grow pt-16"><div class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8"><div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12"><div class="bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"><article class=prose><h1 class=mb-4>个人博客搭建：hugo+github+picgo+github_action</h1><div class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"><div class="me-6 my-2"><i class="fas fa-calendar me-1"></i>
+<span>2025-09-01</span></div><div class="me-6 my-2"><i class="fas fa-clock me-1"></i>
+<span>3 min read</span></div><div class="me-6 my-2"><i class="fas fa-folder me-1"></i>
+<a href=https://ruqinga.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/ class=hover:text-eureka>环境配置</a></div></div><p>之前博客没能持续更新，主要是更新步骤太繁琐了：
+1.本地写好 md 文件
+2.picgo 上传图片至github
+3.hugo build 生成静态网页需要的 ./public
+4.git push</p><p>这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观</p><h2 id=第一关软件安装>第一关：软件安装</h2><h3 id=安装操作软件--git>安装操作软件 — git</h3><p>用于执行hugo命令以及上传博客 | <a href=https://www.liaoxuefeng.com/wiki/896043488029600>相关介绍</a></p><p>1.官网<a href=https://git-scm.com/>下载</a>对应版本
+2.安装
+参考：<a href=https://www.jianshu.com/p/414ccd423efc>Git安装教程（Windows安装超详细教程）</a>
+3.配置
+在命令行输入</p><pre><code class=language-bash>$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;email@example.com&quot;
+</code></pre><blockquote><p><code>--global</code>参数表示会在这台机器上的所有git仓库使用该配置</p></blockquote><h3 id=安装博客生成软件--hugo>安装博客生成软件 — hugo</h3><ol><li>github上<a href=https://github.com/gohugoio/hugo/releases>下载</a>对应版本</li><li>解压，得到<code>.exe</code>文件</li><li>配置到PATH: Windows 搜索环境变量，将<code>.exe</code>文件路径保存到环境变量PATH</li></ol><h2 id=第二关生成本地博客>第二关：生成本地博客</h2><h3 id=基础框架>基础框架</h3><p><strong>新建博客</strong></p><p>想要存放博客的地方，右键点击git bash here,输入<code>hugo new site blog</code>，就会生成一个文件夹</p><p><strong>下载主题</strong></p><p>在官网<a href=https://themes.gohugo.io/>Hugo Themes</a>选择想要的主题，会链接到github下载相应主题的zip文件，解压后放到blog的theme文件夹中</p><p><strong>生成网站</strong></p><p>根据不同主题的使用说明，进行操作，eg:将examplesite文件里的内容替换到blog里</p><p>运行<code>hugo server</code>，浏览器中打开 http://localhost:1313/ 查看效果</p><p><strong>拓展</strong></p><p>帮助文档：https://hexo.io/zh-cn/docs/</p><pre><code class=language-bash>layout: false #草稿，不渲染
+hugo server -D #渲染草稿文件
+</code></pre><h3 id=个性设计>个性设计</h3><p>内容较多，考虑另开一篇</p><h2 id=第三关将本地博客部署到服务器>第三关：将本地博客部署到服务器</h2><h3 id=github建仓>github建仓</h3><p>girhub 新建仓库，命名方式为</p><pre><code class=language-bash>&lt;你的github用户名&gt;.github.io
+# 例如我的：ruqinga.github.io
+</code></pre><h3 id=创建public文件夹>创建public文件夹</h3><pre><code class=language-bash># 修改config
+baseURL: &quot;https://ruqinga.github.io&quot;
+# 生成public文件夹
+hugo build
+</code></pre><h3 id=把public与远程github仓库关联>把public与远程github仓库关联</h3><pre><code class=language-bash>cd public
+git init   // 初始化版本库
+ssh-keygen -t rsa -C &quot;你的邮箱&quot; //生成公钥，填到github里 
+git add .   // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件
+git commit -m &quot;first commit&quot; // 把添加的文件提交到版本库，并填写提交备注
+git remote add origin git@github.com:&lt;你的github用户名&gt;/&lt;你的github用户名&gt;.github.io.git  // 把本地库与远程库关联
+git push -u origin main  // 第一次推送后，直接使用该命令即可推送修改之后可以直接#使用
+git push
+
+</code></pre><p>其它操作：</p><pre><code class=language-bash># 更换远程仓库
+git remote rm origin 	//先删除远程 Git 仓库
+git remote add origin xx 	//再添加
+
+# 本地仓库与远程仓库不同步，解决方法
+## 1. -f强制推送，本地覆盖远程
+git push -u origin main -f 
+## 2.push前先将远程repository修改pull下来
+git pull origin master
+git push -u origin master
+## 3.若不想merge远程和本地修改，可以先创建新的分支：
+git branch [name]	//名字可以随便取，推送时使用同一名字即可
+git push -u origin [name]
+</code></pre><h3 id=查看>查看</h3><p>命令行上传完毕后，在浏览器网址栏打开链接 <code>https://&lt;你的github用户名>.github.io/</code>
+就可以看到我们自己的博客了~</p><h2 id=第四关搭建远程图床>第四关：搭建远程图床</h2><p>上传文档后还需要将相应的图片上传，即搭建一个图床，这里我使用的picGo</p><h3 id=下载-picgo>下载-picGo</h3><p><a href=https://github.com/Molunerfinn/PicGo/releases>下载</a>对应版本(windows是<code>exe</code>)并安装到本地</p><h3 id=github建仓-1>GitHub建仓</h3><ol><li>仓库权限为<strong>开放</strong></li><li><strong>创建token</strong>：点击github头像，找到settings，找到开发者设置（Developer settings），找到个人访问token，然后点击创建新的token</li></ol><h3 id=配置picgo>配置picGo</h3><ol><li><p>配置github图床：插件 ->github plus-> 完成下方配置</p><p><img alt=image-20230219111906058 src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144238.png></p></li><li><p>picgo 设置 -> 设置serve -> 监听端口设为36677 (typora的接口)</p></li></ol><h3 id=配置typora>配置typora</h3><ol><li><p>偏好设置 -> 图象 -> 找到picgo位置</p><p><img alt=image-20230219105200375 src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144239.png></p></li><li><p>报错，截图无法成功上传，日志文件中显示，picgo无法正确读取图像。</p><p><img alt=image-20230219104719671 src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144240.png></p><p>目前还没有找到原因，替换方案是，不直接上传，而是将图象复制到其它文件夹，然后上传</p><ul><li><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144242.png alt=image-20230219105920127 style=zoom:50%></li><li><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144243.png alt=image-20230219110101171 style=zoom:50%></li></ul></li></ol><h3 id=github加速>github加速</h3><p>一方面是加速，一方面<code>raw.githubusercontent.com</code>域名解析被污染了，不更改会导致上传图片无法显示</p><ol><li>在<a href=https://www.ipaddress.com/>https://www.ipaddress.com</a>首页搜索<code>raw.githubusercontent.com</code>，查询真实的ip地址</li></ol><p><img alt=image-20230219112428281 src=https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202302191144244.png></p><ol start=2><li>鼠标右键点击桌面左下角的开始菜单，选择Windows PowerShell（管理员）</li><li>在打开的 窗口中输入notepad, 回车, 会打开记事本</li><li>选择文件 -> 打开</li><li>在弹出的文件选择窗口中, 选择 C:\Windows\System32\drivers\etc\hosts</li><li>在最底下添加该内容即可</li></ol><blockquote><p>185.199.108.133 raw.githubusercontent.com</p><p>185.199.109.133 raw.githubusercontent.com</p><p>185.199.110.133 raw.githubusercontent.com</p><p>185.199.111.133 raw.githubusercontent.com</p><p>2606:50c0:8000::154 raw.githubusercontent.com</p><p>2606:50c0:8001::154 raw.githubusercontent.com</p><p>2606:50c0:8002::154 raw.githubusercontent.com</p><p>2606:50c0:8003::154 raw.githubusercontent.com</p></blockquote><ol start=7><li>刷新：win+r -> cmd -> ipconfig/flushdns -> 回车</li></ol><h2 id=第五关github-action自动部署>第五关：github action自动部署</h2><h3 id=将-hugo-需要的源码推送到github仓库>将 hugo 需要的源码推送到GitHub仓库</h3><p>方式同上，我将其命名为 blog_hugo</p><h3 id=添加-github-actions-workflow>添加 GitHub Actions Workflow</h3><p>在blog_hubo仓库中点击 <code>Action</code> → <code>New workflow</code> → <code>set up a workflow yourself</code></p><p>然后将下面的内容粘贴进去</p><pre><code class=language-txt>name: Build and Deploy Hugo to ruqinga.github.io
+
+on:
+  push:
+    branches: [&quot;main&quot;]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.137.1
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Hugo
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install dependencies
+        run: |
+          npm install postcss-cli tailwindcss autoprefixer cssnano @tailwindcss/typography
+          cd themes/hugo-eureka &amp;&amp; npm install
+
+      - name: Build with Hugo
+        run: hugo --minify
+
+      - name: Deploy to ruqinga.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          external_repository: ruqinga/ruqinga.github.io
+          publish_branch: main   # 或者 gh-pages
+          publish_dir: ./public
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+
+</code></pre><p>需要更改的是最后面的</p><pre><code>        with:
+          external_repository: ruqinga/ruqinga.github.io #你的博客路径
+          publish_branch: main   # 你的博客使用的分支
+          personal_token: ${{ secrets.PERSONAL_TOKEN }} # 创建PERSONAL_TOKEN，后面会讲到
+</code></pre><h3 id=创建personal_toekn的-secret>创建PERSONAL_TOEKN的 secret</h3><p>生成 Personal Access Token（PAT）</p><ol><li>打开 <a href=https://github.com/settings/tokens>GitHub Token生成页面</a>。</li><li>点击右上角 <code>Generate new token</code> 按钮（或 <code>Fine-grained tokens</code>，推荐选择 classic）。</li><li>输入 token 名称，选择过期时间。</li><li>权限选择：<ul><li>至少勾选 <code>repo</code> 权限（全部子选项或至少 <code>public_repo</code>）。</li></ul></li><li>点击最下方 <code>Generate token</code> 按钮。</li><li>复制生成的 token（只显示一次！）。</li></ol><p>在你的 blog_hugo 仓库添加 secret</p><ol><li>打开你的仓库：<a href=https://github.com/ruqinga/blog_hugo>ruqinga/blog_hugo</a>。</li><li>点击顶部菜单栏的 <code>Settings</code>。</li><li>左侧菜单选择 <code>Secrets and variables</code> → <code>Actions</code>。</li><li>点击右上角 <code>New repository secret</code>。</li><li><strong>Name</strong> 填写：<code>PERSONAL_TOKEN</code></li><li><strong>Value</strong> 粘贴你刚刚复制的 token。</li><li>点击 <code>Add secret</code>。</li></ol><h2 id=参考>参考</h2><p>git 教程： <a href=https://www.liaoxuefeng.com/wiki/896043488029600>https://www.liaoxuefeng.com/wiki/896043488029600</a></p><p>hugo 安装与部署： <a href=https://sspai.com/post/59904>https://sspai.com/post/59904</a></p><p>hugo博客搭建： <a href=https://www.sulvblog.cn/posts/blog/build_hugo/>https://www.sulvblog.cn/posts/blog/build_hugo/</a> 也是一个很厉害的个人博客博主，学习！</p><p>picGO+github/gitee图床设置： <a href=https://zhuanlan.zhihu.com/p/416251450>https://zhuanlan.zhihu.com/p/416251450</a></p></article><div class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"><div></div><div class="mt-4 md:mt-0 md:text-right"><span class="text-primary-text block font-bold">Next</span>
+<a href=https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/ class=block>实验笔记：质粒的构建与表达鉴定</a></div></div></div><div class=col-span-2><div class="bg-primary-bg
+prose sticky top-16 z-10 hidden px-6 py-4 lg:block"><h3>On This Page</h3></div><div class="sticky-toc hidden px-6 pb-6 lg:block"><nav id=TableOfContents><ul><li><a href=#第一关软件安装>第一关：软件安装</a><ul><li><a href=#安装操作软件--git>安装操作软件 — git</a></li><li><a href=#安装博客生成软件--hugo>安装博客生成软件 — hugo</a></li></ul></li><li><a href=#第二关生成本地博客>第二关：生成本地博客</a><ul><li><a href=#基础框架>基础框架</a></li><li><a href=#个性设计>个性设计</a></li></ul></li><li><a href=#第三关将本地博客部署到服务器>第三关：将本地博客部署到服务器</a><ul><li><a href=#github建仓>github建仓</a></li><li><a href=#创建public文件夹>创建public文件夹</a></li><li><a href=#把public与远程github仓库关联>把public与远程github仓库关联</a></li><li><a href=#查看>查看</a></li></ul></li><li><a href=#第四关搭建远程图床>第四关：搭建远程图床</a><ul><li><a href=#下载-picgo>下载-picGo</a></li><li><a href=#github建仓-1>GitHub建仓</a></li><li><a href=#配置picgo>配置picGo</a></li><li><a href=#配置typora>配置typora</a></li><li><a href=#github加速>github加速</a></li></ul></li><li><a href=#第五关github-action自动部署>第五关：github action自动部署</a><ul><li><a href=#将-hugo-需要的源码推送到github仓库>将 hugo 需要的源码推送到GitHub仓库</a></li><li><a href=#添加-github-actions-workflow>添加 GitHub Actions Workflow</a></li><li><a href=#创建personal_toekn的-secret>创建PERSONAL_TOEKN的 secret</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div><script>window.addEventListener("DOMContentLoaded",()=>{enableStickyToc()})</script></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.highlightAll()})</script></div></div></main><footer class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>WANG Chucheng</a> and <a href=https://www.ruiqima.com/>MA Ruiqi</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
