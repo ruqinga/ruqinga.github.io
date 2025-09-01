@@ -3,7 +3,36 @@
 &lt;figure>
  &lt;img src="https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202309270941089.png" alt="绿色荧光蛋白的构建与鉴定">
  &lt;figcaption style="text-align: center; color: grey;">图1 绿色荧光蛋白的构建与鉴定实验流程。&lt;/figcaption>
-&lt;/figure></description></item><item><title>Linux进阶-Vim编辑器和Conda环境</title><link>https://ruqinga.github.io/posts/3-linux%E8%BF%9B%E9%98%B6-vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%92%8Cconda%E7%8E%AF%E5%A2%83/</link><pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/3-linux%E8%BF%9B%E9%98%B6-vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%92%8Cconda%E7%8E%AF%E5%A2%83/</guid><description>&lt;p>使用Linux必备的编辑器和软件安装工具conda&lt;/p></description></item><item><title>微生物组学分析全流程（理论）</title><link>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</link><pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</guid><description>&lt;p>微生物组学分析的两个大类：扩增子和宏基因组，涉及概念、流程进行区别和简单介绍。&lt;/p></description></item><item><title>微生物组qimme2分析</title><link>https://ruqinga.github.io/posts/qiimme2/</link><pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/qiimme2/</guid><description>&lt;h1 id="导论">导论&lt;/h1>
+&lt;/figure></description></item><item><title>Linux基础</title><link>https://ruqinga.github.io/posts/2-linux%E5%9F%BA%E7%A1%80-%E9%85%8D%E8%89%B2%E5%92%8C%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link><pubDate>Sun, 28 Aug 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/2-linux%E5%9F%BA%E7%A1%80-%E9%85%8D%E8%89%B2%E5%92%8C%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid><description>&lt;p>以下内容为基础的linux操作，希望大家熟练掌握&lt;/p>
+&lt;h3 id="命令行配色方案">命令行配色方案&lt;/h3>
+&lt;p>这个看个人审美，你们也可以自己配置&lt;/p>
+&lt;pre>&lt;code>echo 'export PS1=&amp;quot;\[\033]2;\h:\u \w\007\033[33;1m\]\u \033[35;1m\t\033[0m \[\033[36;1m\]\w\[\033[0m\]\n\[\e[32;1m\]$ \[\e[0m\]&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc
+source ~/.bashrc
+&lt;/code>&lt;/pre>
+&lt;h2 id="常见命令">常见命令&lt;/h2>
+&lt;p>更多见：&lt;a href="http://man.linuxde.net/">Linux命令大全&lt;/a>&lt;/p>
+&lt;h3 id="查看帮助文档">查看帮助文档&lt;/h3>
+&lt;p>man 命令，help 命令，或者某个命令的 &amp;ndash;help 参数&lt;/p>
+&lt;pre>&lt;code class="language-sh">man ls		## 用 man 命令查看 ls 命令的帮助文档
+help ls	## 用 help 命令查看 ls 命令的帮助文档	
+ls --help	## 用 --help 参数查看 ls 命令的帮助文档
+&lt;/code>&lt;/pre>
+&lt;h3 id="常用快捷键">常用快捷键&lt;/h3>
+&lt;pre>&lt;code>Tab: 补全
+Ctrl+U: 剪切光标位置到行首的字符
+Ctrl+C: 终止任务
+Ctrl+Z: 暂停任务
+Ctrl+L: 清屏
+Ctrl+E: 回到行尾
+Ctrl+A: 回到行首
+&lt;/code>&lt;/pre>
+&lt;h3 id="组合技一查看目录和文件">组合技一：查看目录和文件&lt;/h3>
+&lt;pre>&lt;code>cd 进入目录
+pwd 显示当前所在位置
+ls 查看当前目录下文件
+tree -L 1 将当前目录下文件以树形展示
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>补充：&lt;/strong>&lt;/p></description></item><item><title>Linux进阶-Vim编辑器和Conda环境</title><link>https://ruqinga.github.io/posts/3-linux%E8%BF%9B%E9%98%B6-vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%92%8Cconda%E7%8E%AF%E5%A2%83/</link><pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/3-linux%E8%BF%9B%E9%98%B6-vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%92%8Cconda%E7%8E%AF%E5%A2%83/</guid><description>&lt;p>使用Linux必备的编辑器和软件安装工具conda&lt;/p></description></item><item><title>微生物组学分析全流程（理论）</title><link>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</link><pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84/</guid><description>&lt;p>微生物组学分析的两个大类：扩增子和宏基因组，涉及概念、流程进行区别和简单介绍。&lt;/p></description></item><item><title>微生物组qimme2分析</title><link>https://ruqinga.github.io/posts/qiimme2/</link><pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/qiimme2/</guid><description>&lt;h1 id="导论">导论&lt;/h1>
 &lt;p>开始前，你需要了解QIIME 2的以下信息&lt;/p>
 &lt;p>必看：&lt;/p>
 &lt;ul>
@@ -65,33 +94,4 @@ multiqc qct/* # 合并报告
 
 &lt;/code>&lt;/pre>
 &lt;h2 id="2切除引物">2）切除引物&lt;/h2>
-&lt;p>质检结果中，最后一项Adapter Content正常情况是趋于0的直线，也就是说序列两端Adapter已经去除干净；如果有Adapter，需要先用cutadapt去接头&lt;/p></description></item><item><title>rna-seq上下游分析实战</title><link>https://ruqinga.github.io/posts/rna-seq-%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/rna-seq-%E5%AE%9E%E6%88%98/</guid><description>&lt;p>从零开始系列。网上的流程都太散乱了，无法连接起来，本文一套数据跑完流程，包括转录组基本介绍、上游数据处理和下游功能分析&lt;/p></description></item><item><title>基因家族分析从零到有（研究对象确定+基因家族鉴定+基本信息网站+结构分析+共线性分析+实验验证简述）</title><link>https://ruqinga.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</link><pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</guid><description>&lt;p>基因家族分析从零到有，本文将详细介绍每一步该做的准备。&lt;/p></description></item><item><title>Chapter 1</title><link>https://ruqinga.github.io/docs/example-doc/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/chapter-1/</guid><description>&lt;p>This is chapter 1 of example doc.&lt;/p></description></item><item><title>Chapter 1</title><link>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-1/</guid><description>&lt;p>This is chapter 1 of nested chapter.&lt;/p></description></item><item><title>Chapter 2</title><link>https://ruqinga.github.io/docs/example-doc/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/chapter-2/</guid><description>&lt;p>This is chapter 2 of example doc.&lt;/p></description></item><item><title>Chapter 2</title><link>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-2/</guid><description>&lt;p>This is chapter 2 of nested chapter.&lt;/p></description></item><item><title>Linux基础</title><link>https://ruqinga.github.io/posts/2-linux%E5%9F%BA%E7%A1%80-%E9%85%8D%E8%89%B2%E5%92%8C%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/2-linux%E5%9F%BA%E7%A1%80-%E9%85%8D%E8%89%B2%E5%92%8C%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid><description>&lt;p>以下内容为基础的linux操作，希望大家熟练掌握&lt;/p>
-&lt;h3 id="命令行配色方案">命令行配色方案&lt;/h3>
-&lt;p>这个看个人审美，你们也可以自己配置&lt;/p>
-&lt;pre>&lt;code>echo 'export PS1=&amp;quot;\[\033]2;\h:\u \w\007\033[33;1m\]\u \033[35;1m\t\033[0m \[\033[36;1m\]\w\[\033[0m\]\n\[\e[32;1m\]$ \[\e[0m\]&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc
-source ~/.bashrc
-&lt;/code>&lt;/pre>
-&lt;h2 id="常见命令">常见命令&lt;/h2>
-&lt;p>更多见：&lt;a href="http://man.linuxde.net/">Linux命令大全&lt;/a>&lt;/p>
-&lt;h3 id="查看帮助文档">查看帮助文档&lt;/h3>
-&lt;p>man 命令，help 命令，或者某个命令的 &amp;ndash;help 参数&lt;/p>
-&lt;pre>&lt;code class="language-sh">man ls		## 用 man 命令查看 ls 命令的帮助文档
-help ls	## 用 help 命令查看 ls 命令的帮助文档	
-ls --help	## 用 --help 参数查看 ls 命令的帮助文档
-&lt;/code>&lt;/pre>
-&lt;h3 id="常用快捷键">常用快捷键&lt;/h3>
-&lt;pre>&lt;code>Tab: 补全
-Ctrl+U: 剪切光标位置到行首的字符
-Ctrl+C: 终止任务
-Ctrl+Z: 暂停任务
-Ctrl+L: 清屏
-Ctrl+E: 回到行尾
-Ctrl+A: 回到行首
-&lt;/code>&lt;/pre>
-&lt;h3 id="组合技一查看目录和文件">组合技一：查看目录和文件&lt;/h3>
-&lt;pre>&lt;code>cd 进入目录
-pwd 显示当前所在位置
-ls 查看当前目录下文件
-tree -L 1 将当前目录下文件以树形展示
-&lt;/code>&lt;/pre>
-&lt;p>&lt;strong>补充：&lt;/strong>&lt;/p></description></item></channel></rss>
+&lt;p>质检结果中，最后一项Adapter Content正常情况是趋于0的直线，也就是说序列两端Adapter已经去除干净；如果有Adapter，需要先用cutadapt去接头&lt;/p></description></item><item><title>rna-seq上下游分析实战</title><link>https://ruqinga.github.io/posts/rna-seq-%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/rna-seq-%E5%AE%9E%E6%88%98/</guid><description>&lt;p>从零开始系列。网上的流程都太散乱了，无法连接起来，本文一套数据跑完流程，包括转录组基本介绍、上游数据处理和下游功能分析&lt;/p></description></item><item><title>基因家族分析从零到有（研究对象确定+基因家族鉴定+基本信息网站+结构分析+共线性分析+实验验证简述）</title><link>https://ruqinga.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</link><pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</guid><description>&lt;p>基因家族分析从零到有，本文将详细介绍每一步该做的准备。&lt;/p></description></item><item><title>Chapter 1</title><link>https://ruqinga.github.io/docs/example-doc/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/chapter-1/</guid><description>&lt;p>This is chapter 1 of example doc.&lt;/p></description></item><item><title>Chapter 1</title><link>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-1/</guid><description>&lt;p>This is chapter 1 of nested chapter.&lt;/p></description></item><item><title>Chapter 2</title><link>https://ruqinga.github.io/docs/example-doc/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/chapter-2/</guid><description>&lt;p>This is chapter 2 of example doc.&lt;/p></description></item><item><title>Chapter 2</title><link>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/docs/example-doc/nested-chapter/chapter-2/</guid><description>&lt;p>This is chapter 2 of nested chapter.&lt;/p></description></item></channel></rss>
