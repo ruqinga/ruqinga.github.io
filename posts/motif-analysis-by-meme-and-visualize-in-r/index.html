@@ -1,0 +1,131 @@
+<!doctype html><html lang=en dir=ltr><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Motif analysis by meme and visualize in R | Ruqing a</title>
+<meta name=generator content="Hugo Eureka 0.9.3"><link rel=stylesheet href=https://ruqinga.github.io/css/eureka.min.c000e20ee83e983a6da50f36cc965ffaab7a5112d85459aae8096796b03fa59f32bc75c8322942369757c3c770561bfb.css><script defer src=https://ruqinga.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js></script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js crossorigin></script><link rel=stylesheet href=https://ruqinga.github.io/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css media=print onload='this.media="all",this.onload=null'><script defer type=text/javascript src=https://ruqinga.github.io/js/fontawesome.min.8f55fc818d6fce0446d0f57d11099812f13adb5a0b8eba42ebb0eb390415a166430395f8b6fa40eb7af6a7ec5a0bd89a.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js integrity=sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0 crossorigin></script><link rel=icon type=image/png sizes=32x32 href=https://ruqinga.github.io/images/icon_hu7508083143451182185.png><link rel=apple-touch-icon sizes=180x180 href=https://ruqinga.github.io/images/icon_hu1727792108807623462.png><meta name=description content='1. prepare data
+library(readxl) # read_xlsx
+library(dplyr) # process data
+
+data <- read_xlsx("input/Differentially_annot .xlsx", sheet = 1)
+
+# extract seq
+df <- data %>%
+  mutate(`Modified sequence` = `Modified sequence` %>%
+           gsub("^_", "", .) %>%      # 去除首部的 _
+           gsub("_$", "", .) %>%      # 去除尾部的 _
+           gsub("\\[.*?\\]", "", .))  %>%  # 去除 [] 及其内容
+  filter(nchar(`Modified sequence`) >= 8) # meme 需要输入序列长度大于8
+
+# Add data filtering
+
+
+
+
+save as fasta
+# save as fasta
+writeLines(paste0(">seq", 1:length(df$`Modified sequence`),"_", df$`Protein accession`,  "\n", df$`Modified sequence`),
+           "modified_sequence_v1.fasta")
+
+'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://ruqinga.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Motif analysis by meme and visualize in R","item":"https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/"},"headline":"Motif analysis by meme and visualize in R | Ruqing a","datePublished":"2025-01-14T00:00:00+00:00","dateModified":"2025-01-14T00:00:00+00:00","wordCount":389,"publisher":{"@type":"Person","name":"Ruqing","logo":{"@type":"ImageObject","url":"https://ruqinga.github.io/images/icon.png"}},"description":"\u003ch2 id=\u00221-prepare-data\u0022\u003e1. prepare data\u003c\/h2\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-r\u0022\u003elibrary(readxl) # read_xlsx\nlibrary(dplyr) # process data\n\ndata \u0026lt;- read_xlsx(\u0026quot;input\/Differentially_annot .xlsx\u0026quot;, sheet = 1)\n\n# extract seq\ndf \u0026lt;- data %\u0026gt;%\n  mutate(\u0060Modified sequence\u0060 = \u0060Modified sequence\u0060 %\u0026gt;%\n           gsub(\u0026quot;^_\u0026quot;, \u0026quot;\u0026quot;, .) %\u0026gt;%      # 去除首部的 _\n           gsub(\u0026quot;_$\u0026quot;, \u0026quot;\u0026quot;, .) %\u0026gt;%      # 去除尾部的 _\n           gsub(\u0026quot;\\\\[.*?\\\\]\u0026quot;, \u0026quot;\u0026quot;, .))  %\u0026gt;%  # 去除 [] 及其内容\n  filter(nchar(\u0060Modified sequence\u0060) \u0026gt;= 8) # meme 需要输入序列长度大于8\n\n# Add data filtering\n\n\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003e\u003cimg src=\u0022https:\/\/raw.githubusercontent.com\/ruqinga\/picture\/main\/2024\/IMG-20250907093740685.png\u0022\u003e\u003c\/p\u003e\n\u003cp\u003esave as fasta\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-sh\u0022\u003e# save as fasta\nwriteLines(paste0(\u0026quot;\u0026gt;seq\u0026quot;, 1:length(df$\u0060Modified sequence\u0060),\u0026quot;_\u0026quot;, df$\u0060Protein accession\u0060,  \u0026quot;\\n\u0026quot;, df$\u0060Modified sequence\u0060),\n           \u0026quot;modified_sequence_v1.fasta\u0026quot;)\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003e\u003cimg src=\u0022https:\/\/raw.githubusercontent.com\/ruqinga\/picture\/main\/2024\/IMG-20250907093740625.png\u0022\u003e\u003c\/p\u003e"}</script><meta property="og:title" content="Motif analysis by meme and visualize in R | Ruqing a"><meta property="og:type" content="article"><meta property="og:image" content="https://ruqinga.github.io/images/icon.png"><meta property="og:url" content="https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/"><meta property="og:description" content='1. prepare data
+library(readxl) # read_xlsx
+library(dplyr) # process data
+
+data <- read_xlsx("input/Differentially_annot .xlsx", sheet = 1)
+
+# extract seq
+df <- data %>%
+  mutate(`Modified sequence` = `Modified sequence` %>%
+           gsub("^_", "", .) %>%      # 去除首部的 _
+           gsub("_$", "", .) %>%      # 去除尾部的 _
+           gsub("\\[.*?\\]", "", .))  %>%  # 去除 [] 及其内容
+  filter(nchar(`Modified sequence`) >= 8) # meme 需要输入序列长度大于8
+
+# Add data filtering
+
+
+
+
+save as fasta
+# save as fasta
+writeLines(paste0(">seq", 1:length(df$`Modified sequence`),"_", df$`Protein accession`,  "\n", df$`Modified sequence`),
+           "modified_sequence_v1.fasta")
+
+'><meta property="og:locale" content="en"><meta property="og:site_name" content="Ruqing a"><meta property="article:published_time" content="2025-01-14T00:00:00+00:00"><meta property="article:modified_time" content="2025-01-14T00:00:00+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="R"><meta property="article:tag" content="L3"><body class="flex min-h-screen flex-col"><header class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"><div class="mx-auto w-full max-w-screen-xl"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="me-6 text-primary-text text-xl font-bold">Ruqing a</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item me-4">Posts</a>
+<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Docs</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>Light</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>Dark</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>Auto</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="grow pt-16"><div class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8"><div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12"><div class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"><article class=prose><h1 class=mb-4>Motif analysis by meme and visualize in R</h1><div class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"><div class="me-6 my-2"><i class="fas fa-calendar me-1"></i>
+<span>2025-01-14</span></div><div class="me-6 my-2"><i class="fas fa-clock me-1"></i>
+<span>2 min read</span></div></div><h2 id=1-prepare-data>1. prepare data</h2><pre><code class=language-r>library(readxl) # read_xlsx
+library(dplyr) # process data
+
+data &lt;- read_xlsx(&quot;input/Differentially_annot .xlsx&quot;, sheet = 1)
+
+# extract seq
+df &lt;- data %&gt;%
+  mutate(`Modified sequence` = `Modified sequence` %&gt;%
+           gsub(&quot;^_&quot;, &quot;&quot;, .) %&gt;%      # 去除首部的 _
+           gsub(&quot;_$&quot;, &quot;&quot;, .) %&gt;%      # 去除尾部的 _
+           gsub(&quot;\\[.*?\\]&quot;, &quot;&quot;, .))  %&gt;%  # 去除 [] 及其内容
+  filter(nchar(`Modified sequence`) &gt;= 8) # meme 需要输入序列长度大于8
+
+# Add data filtering
+
+
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740685.png></p><p>save as fasta</p><pre><code class=language-sh># save as fasta
+writeLines(paste0(&quot;&gt;seq&quot;, 1:length(df$`Modified sequence`),&quot;_&quot;, df$`Protein accession`,  &quot;\n&quot;, df$`Modified sequence`),
+           &quot;modified_sequence_v1.fasta&quot;)
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740625.png></p><h2 id=2-find-motif-by-meme>2. find motif by meme</h2><h3 id=method-1--use-meme-web>method 1: use meme web</h3><p>find motif in meme: <a href=https://meme-suite.org/meme/tools/meme>https://meme-suite.org/meme/tools/meme</a>
+<img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740999.png></p><p>params description:</p><blockquote><p><strong>mod zoops motif的分布类型</strong></p><ul><li>oops 每个功能域在每一段序列中都会出现一次，而且只出现一次。这种模式是运算速度最快，而且最为敏感的。但是如果并不是每个序列都包含功能域，那就可能会有不正确的结果。</li><li>zoops 每个功能域在每一段序列中至多只出现一次，可能不出现。这种模式运算速度较快，敏感性稍弱。</li><li>anr 每个功能域在每一段序列中出现的次数不定。这种模式运算速度最慢，可能会多花十倍以上的时间。但是对于功能分布的情况完全未知的情况下，这一参数可能会有帮助</li></ul><p><strong>Select the number of motifs</strong></p><p>决定在这一组多条序列中，将被挖掘出的结构域（motif）的种类数量。默认值是3，这意味着在这一组序列中，发现的motif的数量最多3个。但有时候，我们无法预先了解这组序列实际上的结构域的数量，那么可以先填写一份较大的数值。例如10。在完成分析后，再查看分析结果中结构域的显著性。例如，如果结果中保守性达到显著水平（P＜0.05）的结构域数量是6。那么，则可以将最初的参数从“10”修改为“6”，然后重新提交数据分析一次。</p></blockquote><p>Wait after commit
+<img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740935.png></p><p>Download result <code>meme.txt</code> as downstream input</p><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740806.png></p><h3 id=method-2-use-local-meme>method 2: use local meme</h3><p>To avoid queues, you can also download the local version of meme to search for motif</p><p>install meme</p><pre><code class=language-sh>conda create -n meme -c bioconda meme -y
+conda activate meme
+</code></pre><p>find motif by meme</p><pre><code class=language-sh>meme modified_sequence_v1.fasta -o meme_v1 -minw 6 -maxw 50 -mod zoops -nmotifs 10
+</code></pre><p>result</p><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093741063.png></p><p>Use <code>meme.txt</code> as downstream input</p><h2 id=3-visualization-in-r>3. visualization in R</h2><p>Load the output file <code>meme.txt</code> of meme</p><pre><code class=language-r>#load motif
+BiocManager::install(&quot;universalmotif&quot;) 
+library(universalmotif) # read_meme
+
+motifs &lt;- read_meme(&quot;meme.txt&quot;, skip = 0, readsites = FALSE, readsites.meta = FALSE, readsites.meta.tidy = FALSE)
+</code></pre><p>The motif is structured as follows：</p><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740736.png></p><h3 id=31-visualization-via-motifstack>3.1 Visualization via motifStack</h3><p>Organize the input format required for motifStack</p><pre><code class=language-r># 提取 PPM 并转换为 pcm 对象
+motif_stack &lt;- lapply(motifs, function(m) {
+  # 提取 PPM 矩阵
+  ppm &lt;- m@motif
+  # 将 PPM 转换为 PCM
+  pcm &lt;- ppm * m@nsites
+  # 创建 pcm 对象
+  new(&quot;pcm&quot;, mat = pcm, name = m@name)
+})
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740881.png></p><p>visualization</p><pre><code class=language-sh>pdf(&quot;motif_stack.pdf&quot;, width = 8, height = 8) 
+
+# plot
+motifStack(motif_stack, layout = &quot;stack&quot;, ncex = 1.0) # layout = stack / tree
+
+dev.off()
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093741216.png></p><h3 id=32-visualization-via-ggseqlogo>3.2 Visualization via ggseqlogo</h3><p>Organize the input format required for ggseqlogo</p><pre><code class=language-r># 提取 PPM 并转换为 pcm 对象
+motif_seqlogo &lt;- lapply(motifs, function(m) {
+  # 提取 PPM 矩阵
+  ppm &lt;- m@motif
+  
+  # 将 PPM 转换为 PCM
+  pcm &lt;- ppm * m@nsites
+  
+  # 将列名设置为数字序列 &quot;1&quot;, &quot;2&quot;, ..., ncol(ppm)
+  colnames(pcm) &lt;- paste0(1:ncol(pcm))
+  
+  # 如果需要整数，直接对矩阵进行操作
+  pcm &lt;- round(pcm) 
+  storage.mode(pcm) &lt;- &quot;integer&quot; # 强制矩阵的存储模式为整型
+  
+  # 返回矩阵
+  return(pcm)
+})
+
+# 设置子列表的名字为 consensus
+# names(motif_ggseqlogo) &lt;- sapply(motifs, function(m) m@consensus)
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093741139.png></p><p>visualization</p><pre><code class=language-r># plot
+ggseqlogo(motif_seqlogo, method = &quot;bits&quot;, facet = &quot;wrap&quot;,ncol = 2) # method = bits / probability
+# save
+ggsave(&quot;motif_seqlogo.pdf&quot;, width = 10, height = 8,dpi = 600)
+</code></pre><p><img src=https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093741269.png></p></article><div class=my-4><a href=https://ruqinga.github.io/tags/r/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#R</a>
+<a href=https://ruqinga.github.io/tags/l3/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#L3</a></div><div class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"><div><span class="text-primary-text block font-bold">Previous</span>
+<a href=https://ruqinga.github.io/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo+github+picgo/ class=block>个人博客搭建：hugo+github+picgo+github_action</a></div><div class="mt-4 md:mt-0 md:text-right"><span class="text-primary-text block font-bold">Next</span>
+<a href=https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/ class=block>实验笔记：质粒的构建与表达鉴定</a></div></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.highlightAll()})</script></div></div></main><footer class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>WANG Chucheng</a> and <a href=https://www.ruiqima.com/>MA Ruiqi</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
