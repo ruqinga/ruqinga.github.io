@@ -3,31 +3,7 @@
 2.picgo 上传图片至github
 3.hugo build 生成静态网页需要的 ./public
 4.git push&lt;/p>
-&lt;p>这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观&lt;/p></description></item><item><title>Motif analysis by meme and visualize in R</title><link>https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/</link><pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/</guid><description>&lt;h2 id="1-prepare-data">1. prepare data&lt;/h2>
-&lt;pre>&lt;code class="language-r">library(readxl) # read_xlsx
-library(dplyr) # process data
-
-data &amp;lt;- read_xlsx(&amp;quot;input/Differentially_annot .xlsx&amp;quot;, sheet = 1)
-
-# extract seq
-df &amp;lt;- data %&amp;gt;%
- mutate(`Modified sequence` = `Modified sequence` %&amp;gt;%
- gsub(&amp;quot;^_&amp;quot;, &amp;quot;&amp;quot;, .) %&amp;gt;% # 去除首部的 _
- gsub(&amp;quot;_$&amp;quot;, &amp;quot;&amp;quot;, .) %&amp;gt;% # 去除尾部的 _
- gsub(&amp;quot;\\[.*?\\]&amp;quot;, &amp;quot;&amp;quot;, .)) %&amp;gt;% # 去除 [] 及其内容
- filter(nchar(`Modified sequence`) &amp;gt;= 8) # meme 需要输入序列长度大于8
-
-# Add data filtering
-
-
-&lt;/code>&lt;/pre>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740685.png">&lt;/p>
-&lt;p>save as fasta&lt;/p>
-&lt;pre>&lt;code class="language-sh"># save as fasta
-writeLines(paste0(&amp;quot;&amp;gt;seq&amp;quot;, 1:length(df$`Modified sequence`),&amp;quot;_&amp;quot;, df$`Protein accession`, &amp;quot;\n&amp;quot;, df$`Modified sequence`),
- &amp;quot;modified_sequence_v1.fasta&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/ruqinga/picture/main/2024/IMG-20250907093740625.png">&lt;/p></description></item><item><title>实验笔记：质粒的构建与表达鉴定</title><link>https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/</link><pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/</guid><description>&lt;p>最近开始接触一些质粒构建和表达的分子实验，于是把本科时候做的相关实验再整理一下。&lt;/p>
+&lt;p>这次更新，将hugo build简化成github_action自动构建并推送，git push 通过pycharm，更直观&lt;/p></description></item><item><title>Motif analysis by meme and visualize in R</title><link>https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/</link><pubDate>Tue, 14 Jan 2025 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/motif-analysis-by-meme-and-visualize-in-r/</guid><description>&lt;p>This article provides a comprehensive guide on motif analysis using the MEME suite and visualization in R, using both the MEME web tool and its local version, and concluding with motif visualization using R packages like universalmotif, motifStack, and ggseqlogo.&lt;/p></description></item><item><title>实验笔记：质粒的构建与表达鉴定</title><link>https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/</link><pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate><guid>https://ruqinga.github.io/posts/%E5%AE%9E%E9%AA%8C%E7%AC%94%E8%AE%B0%E8%B4%A8%E7%B2%92%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%A1%A8%E8%BE%BE%E9%89%B4%E5%AE%9A/</guid><description>&lt;p>最近开始接触一些质粒构建和表达的分子实验，于是把本科时候做的相关实验再整理一下。&lt;/p>
 &lt;p>题目是：绿色荧光蛋白GFP的构建与鉴定&lt;/p>
 &lt;figure>
  &lt;img src="https://raw.githubusercontent.com/ruqinga/picture/main/2023/02/202309270941089.png" alt="绿色荧光蛋白的构建与鉴定">
